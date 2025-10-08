@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>USIU G6 SaaS – Cutting Edge Software Solutions</title>
   <meta name="description" content="Modern, light and fast personal portfolio / resume template." />
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Google Font & general UI CSS-->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
   <style>
     html {
@@ -18,11 +19,34 @@
     }
   </style>
 <body>
-    <h1>Welcome to the Project Homepage</h1>
-    <p>This is the main entry point for the project.</p>
-    <a href="docs/index.html">Go to Documentation</a>
-    <footer>
-        <p>&copy; 2025 Project Name. All rights reserved.</p>
+  <header class="navbar">
+    <div class="container nav-container">
+      <h1 class="logo">USIU G6</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="our-work.html">Sample Project</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-buttons">
+        <a href="login.html" class="btn-outline">Login</a>
+        <a href="signup.html" class="btn-primary">Sign Up</a>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+    </div>
+  </header>
+  <main>
+    <section class="hero-bg">
+      <h1>Welcome to the Project Homepage</h1>
+      <p>This is the main entry point for the project.</p>
+      <a href="docs/index.html">Go to Documentation</a>
+    </section>
+  </main>
+  <footer>
+      <p>&copy; 2025 Project Name. All rights reserved.</p>
     </footer>
 </body>
 </html>
