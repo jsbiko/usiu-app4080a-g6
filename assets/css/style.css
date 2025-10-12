@@ -9,6 +9,7 @@
   --text-light: #6b7280;
   --bg-light: #f9fafb;
   --white: #ffffff;
+  --footer-bg: #16204a; /* Darker variant for footer */
   --transition: all 0.3s ease;
   --radius: 10px;
   --shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -306,16 +307,9 @@ h1, h2, h3, h4 {
   margin-bottom: 0.5rem;
 }
 
+```
 /* ------------------------------
    FOOTER
------------------------------- */
-footer {
-  background: var(--primary);
-  color: var(--white);
-  padding: 2rem 0;
-  text-align: center;
-}
-
 .footer-grid {
   display: flex;
   justify-content: center;
