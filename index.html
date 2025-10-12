@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>USIU G6 SaaS – Cutting Edge Software Solutions</title>
   <meta name="description" content="Modern, light and fast personal portfolio / resume template." />
   <!-- Google Font & general UI CSS-->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <script src="assets/js/scrip.js"></script>
+  <script src="assets/js/script.js"></script>
   <!--AOS SCRIPT for mobile toggle -->
   <script src="assets/js/aos.js"></script>
   <script>
@@ -20,7 +20,6 @@
   });
 </script>
 <!--AOS SCRIPT for mobile toggle end -->
-</head>
   <style>
     html {
       scroll-behavior: smooth;
@@ -29,6 +28,7 @@
       background: linear-gradient(to bottom right, #ebf8ff, #ffffff);
     }
   </style>
+</head>
 <body>
   <header class="navbar">
     <div class="container nav-container">
@@ -58,7 +58,10 @@
     </section>
   </main>
   <footer>
-      <p>&copy; 2025 Project Name. All rights reserved.</p>
+      <p>&copy; <span id="year"></span>. All rights reserved.</p>
+      <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
     </footer>
 </body>
 </html>
