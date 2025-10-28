@@ -1,42 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>USIU G6 SaaS – Cutting Edge Software Solutions</title>
-  <meta name="description" content="Modern, light and fast personal portfolio / resume template." />
-  <!-- Google Font & general UI CSS-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>USIU G6 | SaaS Platform</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <script src="assets/js/script.js"></script>
-  <!--AOS SCRIPT for mobile toggle -->
-  <script src="assets/js/aos.js"></script>
-  <script>
-  AOS.init({
-    duration: 1000,
-    once: true,
-    easing: 'ease-in-out',
-  });
-</script>
-<!--AOS SCRIPT for mobile toggle end -->
-<!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    .hero-bg {
-      background: linear-gradient(to bottom right, #ebf8ff, #ffffff);
-    }
-  </style>
 </head>
 <body>
-  <header class="navbar">
+
+  <!-- Scroll Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
     <div class="container nav-container">
       <h1 class="logo">USIU G6</h1>
+
       <nav>
-        <ul class="nav-links">
+        <ul class="nav-links" id="mobile-menu">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="our-work.html">Sample Project</a></li>
           <li><a href="pricing.html">Pricing</a></li>
@@ -45,56 +29,65 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
       <div class="nav-buttons">
         <a href="login.html" class="btn-outline">Login</a>
         <a href="signup.html" class="btn-primary">Sign Up</a>
       </div>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu Toggle" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
     </div>
+
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
   </header>
-    <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h2>Manage Your Clients With Ease</h2>
-      <p>Streamline operations, automate tasks, and grow your business faster with USIU G6.</p>
-      <a href="signup.html" class="btn-primary">Book Your Free Induction</a>
+
+  <!-- Hero -->
+  <section class="hero parallax" id="hero">
+    <div class="parallax-bg" id="parallax-bg"></div>
+    <div class="container hero-content" id="heroContent">
+      <h2 class="fade-in-up">Manage Your Clients With Ease</h2>
+      <p class="fade-in-up delay-1">Streamline operations, automate tasks, and grow your business faster with USIU G6.</p>
+      <a href="#" class="btn-primary fade-in-up delay-2">Book Your Free Induction</a>
     </div>
   </section>
-  <!-- Features Section -->
+
+  <!-- Features -->
   <section class="features">
     <div class="container">
-      <h2 class="section-title">Powerful Features</h2>
+      <h2 class="section-title fade-in-up">Powerful Features</h2>
       <div class="features-grid">
-        <div class="feature-card">
+        <div class="feature-card" data-aos="fade-up">
           <h3>Analytics Dashboard</h3>
-          <p>Track key metrics and insights in real-time with our easy-to-use analytics system.</p>
+          <p>Gain actionable insights from real-time metrics that drive growth.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="150">
           <h3>Team Collaboration</h3>
-          <p>Enhance teamwork and communication with integrated tools and shared workspaces.</p>
+          <p>Enhance productivity with seamless communication and task sharing.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
           <h3>Cloud Sync</h3>
-          <p>Access your data anytime, anywhere with secure cloud synchronization.</p>
+          <p>Access your data anytime, anywhere with reliable cloud storage.</p>
         </div>
       </div>
     </div>
-  </section>  
-  <!-- Features Section -->
-   <!-- Testimonials -->
-  <section class="testimonials" data="fade-up">
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
     <div class="container">
-      <h2 class="section-title">What Our Users Say</h2>
+      <h2 class="section-title fade-in-up">What Our Users Say</h2>
       <div class="testimonial-grid">
-        <div class="testimonial-card">
+        <div class="testimonial" data-aos="fade-right">
           <p>"USIU G6 transformed our workflow completely. It’s a game-changer!"</p>
           <h4>- Sarah, Product Manager</h4>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial" data-aos="fade-up">
           <p>"Super intuitive and efficient. Our team productivity has doubled!"</p>
           <h4>- Michael, CEO</h4>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial" data-aos="fade-left">
           <p>"The analytics and client management tools are simply outstanding."</p>
           <h4>- Linda, Operations Lead</h4>
         </div>
@@ -103,83 +96,78 @@
   </section>
 
   <!-- Pricing -->
-  <section class="pricing" data="fade-up">
+  <section class="pricing">
     <div class="container">
-      <h2 class="section-title">Choose Your Plan</h2>
+      <h2 class="section-title fade-in-up">Choose Your Plan</h2>
       <div class="pricing-grid">
         <div class="price-card">
-          <h3>Lite</h3>
-          <p class="price">$9<span>/mo</span></p>
-          <ul>
-            <li>Basic analytics</li>
-            <li>5 team members</li>
-            <li>Email support</li>
-          </ul>
-          <a href="signup.html" class="btn-primary">Get Started</a>
+          <h3>Lite</h3><p class="price">$9<span>/mo</span></p>
+          <ul><li>Basic analytics</li><li>5 team members</li><li>Email support</li></ul>
+          <a href="#" class="btn-primary">Get Started</a>
         </div>
         <div class="price-card featured">
-          <h3>Express</h3>
-          <p class="price">$29<span>/mo</span></p>
-          <ul>
-            <li>Advanced analytics</li>
-            <li>20 team members</li>
-            <li>Priority support</li>
-          </ul>
-          <a href="signup.html" class="btn-primary">Get Started</a>
+          <h3>Express</h3><p class="price">$29<span>/mo</span></p>
+          <ul><li>Advanced analytics</li><li>20 team members</li><li>Priority support</li></ul>
+          <a href="#" class="btn-primary">Get Started</a>
         </div>
         <div class="price-card">
-          <h3>Premium</h3>
-          <p class="price">$59<span>/mo</span></p>
-          <ul>
-            <li>Unlimited analytics</li>
-            <li>Unlimited team members</li>
-            <li>24/7 support</li>
-          </ul>
-          <a href="signup.html" class="btn-primary">Get Started</a>
+          <h3>Premium</h3><p class="price">$59<span>/mo</span></p>
+          <ul><li>Unlimited analytics</li><li>Unlimited members</li><li>24/7 support</li></ul>
+          <a href="#" class="btn-primary">Get Started</a>
         </div>
       </div>
     </div>
   </section>
-  
-  <!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-brand">
-      <h2 class="footer-logo">USIU G6</h2>
-      <p class="footer-text">
-        Empowering smarter client management with next-gen SaaS tools.  
-        Streamline, analyze, and grow — all in one place.
-      </p>
-    </div>
 
-    <div class="footer-links">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Testimonials</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" class="scroll-top">↑</button>
 
-    <div class="footer-social">
-      <h3>Follow Us</h3>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+  <!-- Fancy Footer -->
+  <footer class="site-footer">
+    <svg class="footer-wave" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C240,120 480,0 720,40 C960,80 1200,120 1440,40 L1440,120 L0,120 Z" fill="url(#g)"></path>
+      <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0%" stop-color="#1E3A8A"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+    </svg>
+
+    <div class="container footer-grid">
+      <div class="footer-brand"><div class="footer-logo">USIU G6</div><p>Modern tools to manage clients, automate tasks, and grow — all in one elegant platform.</p></div>
+
+      <div class="footer-links"><h4>Product</h4><ul><li><a href="#">Features</a></li><li><a href="#">Integrations</a></li><li><a href="#">Roadmap</a></li><li><a href="#">Changelog</a></li></ul></div>
+      <div class="footer-links"><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li><li><a href="#">Contact</a></li></ul></div>
+
+      <div class="footer-newsletter">
+        <h4>Stay in the loop</h4>
+        <p>Get product updates and tips straight to your inbox.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!')">
+          <input type="email" placeholder="Your email" required />
+          <button class="btn-primary" type="submit">Subscribe</button>
+        </form>
       </div>
     </div>
-  </div>
 
-  <div class="footer-bottom">
-    <p>&copy; 2025 USIU G6. All Rights Reserved.</p>
-  </div>
-</footer>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© 2025 USIU G6. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+        </div>
+
+        <div class="footer-socials-bottom">
+          <a href="#" class="social-btn twitter" data-tooltip="Twitter">T</a>
+          <a href="#" class="social-btn linkedin" data-tooltip="LinkedIn">in</a>
+          <a href="#" class="social-btn github" data-tooltip="GitHub">GH</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>
+
 
 
   
