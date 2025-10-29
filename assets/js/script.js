@@ -80,4 +80,56 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+  /* ----- Mobile Tooltip Tap Support ----- */
+  const socialButtons = document.querySelectorAll(".social-btn");
+
+  socialButtons.forEach((btn) => {
+    let tooltipVisible = false;
+
+    btn.addEventListener("touchstart", (e) => {
+      e.preventDefault(); // prevent accidental click
+      tooltipVisible = !tooltipVisible;
+
+      if (tooltipVisible) {
+        btn.classList.add("show-tooltip");
+        // Hide any others currently open
+        socialButtons.forEach((b) => {
+          if (b !== btn) b.classList.remove("show-tooltip");
+        });
+      } else {
+        btn.classList.remove("show-tooltip");
+      }
+    });
+
+    // Hide tooltip when tapping elsewhere
+    document.addEventListener("touchstart", (event) => {
+      if (!btn.contains(event.target)) {
+        btn.classList.remove("show-tooltip");
+        tooltipVisible = false;
+      }
+    });
+  });
+
+    /* ----- Fancy Ripple Effect on Click ----- */
+  document.querySelectorAll(".social-btn, .btn-primary, .btn-outline").forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      const ripple = document.createElement("span");
+      ripple.classList.add("ripple");
+      this.appendChild(ripple);
+
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + "px";
+
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      ripple.style.left = x + "px";
+      ripple.style.top = y + "px";
+
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+
 
