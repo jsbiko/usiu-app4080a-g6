@@ -1,6 +1,6 @@
-/* ======================================================
-   USIU G6 SaaS Website - Full Stylesheet
-   ====================================================== */
+/* =======================================
+   USIU G6 SaaS Website Stylesheet
+   ======================================= */
 
 /* ---------- Root Variables ---------- */
 :root {
@@ -14,7 +14,7 @@
   --radius: 10px;
   --transition: all 0.3s ease;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --font: "Poppins", sans-serif;
+  --font: 'Poppins', sans-serif;
 }
 
 /* ---------- Reset ---------- */
@@ -32,6 +32,7 @@ body {
   overflow-x: hidden;
 }
 
+/* ---------- Containers ---------- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -59,42 +60,51 @@ body {
   transition: var(--transition);
   z-index: 1000;
 }
+
 .navbar.scrolled {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: var(--shadow);
   backdrop-filter: blur(8px);
   padding: 0.6rem 0;
 }
+
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
 }
+
 .logo {
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--primary);
 }
+
 .nav-links {
   display: flex;
   gap: 2rem;
   list-style: none;
 }
+
 .nav-links a {
   text-decoration: none;
   color: var(--text-dark);
   font-weight: 500;
   transition: var(--transition);
 }
+
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--secondary);
 }
+
 .nav-buttons {
   display: flex;
   gap: 1rem;
 }
+
+/* ---------- Buttons ---------- */
 .btn-primary,
 .btn-outline {
   padding: 0.6rem 1.2rem;
@@ -102,24 +112,30 @@ body {
   font-weight: 500;
   text-decoration: none;
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
 }
+
 .btn-primary {
   background: var(--primary);
   color: var(--white);
 }
+
 .btn-primary:hover {
   background: var(--secondary);
 }
+
 .btn-outline {
   border: 2px solid var(--primary);
   color: var(--primary);
 }
+
 .btn-outline:hover {
   background: var(--primary);
   color: var(--white);
 }
 
-/* ---------- Mobile Menu ---------- */
+/* ---------- Menu Toggle ---------- */
 .menu-toggle {
   display: none;
   position: relative;
@@ -130,6 +146,7 @@ body {
   cursor: pointer;
   z-index: 2001;
 }
+
 .menu-toggle .bar {
   height: 3px;
   width: 100%;
@@ -137,6 +154,7 @@ body {
   border-radius: 4px;
   transition: all 0.3s ease;
 }
+
 .menu-toggle.active .bar:nth-child(1) {
   transform: rotate(45deg) translate(5px, 6px);
 }
@@ -146,6 +164,8 @@ body {
 .menu-toggle.active .bar:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -7px);
 }
+
+/* ---------- Menu Overlay ---------- */
 .menu-overlay {
   display: none;
   position: fixed;
@@ -157,41 +177,11 @@ body {
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
+
 .menu-overlay.active {
   display: block;
   opacity: 1;
   pointer-events: auto;
-}
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: var(--white);
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    box-shadow: var(--shadow);
-    padding: 1rem 0;
-    z-index: 1900;
-  }
-  .nav-links.active {
-    display: flex;
-    animation: slideDown 0.25s ease;
-  }
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .menu-toggle {
-    display: flex;
-  }
 }
 
 /* ---------- Hero Section ---------- */
@@ -204,13 +194,14 @@ body {
   overflow: hidden;
   text-align: center;
 }
+
 .parallax-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 120%;
-  background-image: url("../img/hero-bg.jpg");
+  background-image: url('../img/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   transform: translateY(0);
@@ -219,6 +210,7 @@ body {
   opacity: 0.9;
   filter: brightness(0.95);
 }
+
 .hero::after {
   content: "";
   position: absolute;
@@ -226,23 +218,22 @@ body {
   left: 0;
   width: 100%;
   height: 150px;
-  background: linear-gradient(
-    to bottom,
-    rgba(249, 250, 251, 0),
-    rgba(249, 250, 251, 1)
-  );
+  background: linear-gradient(to bottom, rgba(249,250,251,0), rgba(249,250,251,1));
   z-index: 2;
 }
+
 .hero-content {
   position: relative;
   z-index: 3;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
 .hero h2 {
   font-size: 2.6rem;
   color: var(--primary);
   margin-bottom: 1rem;
 }
+
 .hero p {
   color: var(--text-light);
   margin-bottom: 1.5rem;
@@ -252,12 +243,14 @@ body {
 section {
   padding: 4rem 0;
 }
+
 .section-title {
   text-align: center;
   font-size: 2rem;
   color: var(--primary);
   margin-bottom: 2rem;
 }
+
 .features-grid,
 .testimonial-grid,
 .pricing-grid {
@@ -265,6 +258,7 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
+
 .feature-card,
 .testimonial,
 .price-card {
@@ -274,6 +268,7 @@ section {
   box-shadow: var(--shadow);
   transition: var(--transition);
 }
+
 .feature-card:hover,
 .price-card:hover {
   transform: translateY(-5px);
@@ -285,7 +280,7 @@ section {
   margin: 1rem 0;
 }
 
-/* ---------- Scroll Top Button ---------- */
+/* ---------- Scroll to Top ---------- */
 .scroll-top {
   position: fixed;
   bottom: 30px;
@@ -401,27 +396,8 @@ section {
 .footer-legal a:hover {
   color: #ffffff;
 }
-@media (max-width: 960px) {
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 600px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-  .newsletter-form {
-    flex-direction: column;
-  }
-  .footer-bottom-inner {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
 
-/* =======================================
-   UNIVERSAL SOCIAL BUTTON + TOOLTIP SYSTEM
-   ======================================= */
+/* ---------- Social Buttons + Tooltips ---------- */
 .social-btn {
   display: inline-flex;
   align-items: center;
@@ -435,24 +411,9 @@ section {
   position: relative;
   overflow: hidden;
 }
-
 .social-btn:hover {
   transform: translateY(-4px) scale(1.05);
 }
-
-/* Gradient backgrounds by platform */
-.social-btn.twitter::before {
-  background: linear-gradient(135deg, #1da1f2, #0099ff);
-}
-
-.social-btn.linkedin::before {
-  background: linear-gradient(135deg, #0a66c2, #0077b5);
-}
-
-.social-btn.github::before {
-  background: linear-gradient(135deg, #24292e, #000);
-}
-
 .social-btn::before {
   content: "";
   position: absolute;
@@ -462,11 +423,18 @@ section {
   transition: all 0.3s ease;
   z-index: 1;
 }
-
+.social-btn.twitter::before {
+  background: linear-gradient(135deg, #1da1f2, #0099ff);
+}
+.social-btn.linkedin::before {
+  background: linear-gradient(135deg, #0a66c2, #0077b5);
+}
+.social-btn.github::before {
+  background: linear-gradient(135deg, #24292e, #000);
+}
 .social-btn:hover::before {
   opacity: 1;
 }
-
 .social-btn svg {
   width: 18px;
   height: 18px;
@@ -474,12 +442,11 @@ section {
   position: relative;
   transition: transform 0.3s ease;
 }
-
 .social-btn:hover svg {
   transform: scale(1.1);
 }
 
-/* ---------- Tooltip Styling ---------- */
+/* Tooltips */
 .social-btn::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -500,26 +467,71 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.15);
   z-index: 5;
 }
-
 .social-btn:hover::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
-
-@media (max-width: 768px) {
-  .footer-bottom-inner,
-  .nav-socials {
-    justify-content: center;
-  }
-}
-
-/* Show tooltip manually when tapped on mobile */
 .social-btn.show-tooltip::after {
   opacity: 1 !important;
   transform: translateX(-50%) translateY(0) !important;
 }
 
-/* ---------- Ripple Animation for Tooltip ---------- */
+/* ---------- Navbar Social Icons (Always Visible) ---------- */
+.nav-socials {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.nav-socials .social-btn {
+  background: none; /* remove white base */
+  position: relative;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Make gradient backgrounds visible by default */
+.nav-socials .social-btn::before {
+  opacity: 1; /* always visible */
+}
+
+/* Subtle brightness increase on hover */
+.nav-socials .social-btn:hover::before {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
+
+/* Icon adjustments */
+.nav-socials .social-btn svg {
+  width: 17px;
+  height: 17px;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+/* Tooltip (optional) - still available */
+.nav-socials .social-btn::after {
+  bottom: 135%;
+}
+
+/* Optional: fade-in animation when page loads */
+.nav-socials .social-btn {
+  opacity: 0;
+  animation: fadeInIcons 0.8s forwards;
+}
+.nav-socials .social-btn:nth-child(1) { animation-delay: 0.2s; }
+.nav-socials .social-btn:nth-child(2) { animation-delay: 0.4s; }
+.nav-socials .social-btn:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeInIcons {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ---------- Ripple ---------- */
 .ripple {
   position: absolute;
   border-radius: 50%;
@@ -529,7 +541,6 @@ section {
   pointer-events: none;
   z-index: 0;
 }
-
 @keyframes rippleEffect {
   to {
     transform: scale(3.5);
@@ -537,17 +548,7 @@ section {
   }
 }
 
-.btn-primary .ripple { background: rgba(255, 255, 255, 0.5); }
-.btn-outline .ripple { background: rgba(30, 58, 138, 0.3); } /* your brand blue */
-.social-btn.github .ripple { background: rgba(255, 255, 255, 0.2); }
-
-/* ---------- Premium Hover Glow Animation ---------- */
-.btn-primary, 
-.btn-outline {
-  position: relative;
-  overflow: hidden;
-}
-
+/* ---------- Hover Glow ---------- */
 .btn-primary::after,
 .btn-outline::after {
   content: "";
@@ -556,193 +557,56 @@ section {
   left: -100%;
   width: 200%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.35) 50%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.05) 100%);
   transform: skewX(-25deg);
   transition: all 0.6s ease;
   opacity: 0;
-  pointer-events: none;
 }
-
 .btn-primary:hover::after,
 .btn-outline:hover::after {
   left: 100%;
   opacity: 1;
 }
-
-/* Smooth breathing glow on hover */
 .btn-primary:hover {
   box-shadow: 0 0 25px rgba(59, 130, 246, 0.5), 0 0 10px rgba(59, 130, 246, 0.3);
 }
-
 .btn-outline:hover {
   box-shadow: 0 0 20px rgba(30, 58, 138, 0.4);
 }
 
+/* Hero CTA Pulse */
 .hero .btn-primary {
   animation: pulseGlow 3s infinite ease-in-out;
 }
-
 @keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 0px rgba(59, 130, 246, 0);
+  0%, 100% { box-shadow: 0 0 0px rgba(59, 130, 246, 0); }
+  50% { box-shadow: 0 0 25px rgba(59, 130, 246, 0.5); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: var(--white);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    box-shadow: var(--shadow);
+    padding: 1rem 0;
+    z-index: 1900;
   }
-  50% {
-    box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+  .nav-links.active { display: flex; animation: slideDown 0.25s ease; }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-}
-
-
-
-/* Brand colors */
-.footer-socials-bottom .twitter {
-  color: #1da1f2;
-}
-.footer-socials-bottom .linkedin {
-  color: #0a66c2;
-}
-.footer-socials-bottom .github {
-  color: #999;
-}
-
-/* Cursor reactive glow */
-.footer-socials-bottom .social-btn::after,
-.footer-socials-bottom .social-btn::before {
-  z-index: 5;
-}
-.footer-socials-bottom .social-btn::selection {
-  background: none;
-}
-.footer-socials-bottom .social-btn[data-glow]::after {
-  background: radial-gradient(
-    circle at var(--x) var(--y),
-    currentColor 0%,
-    transparent 70%
-  );
-  opacity: 0.6;
-  inset: -15px;
-  border-radius: 50%;
-  filter: blur(12px);
-  content: "";
-}
-
-/* ---------- Page Animations ---------- */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.8s ease-out forwards;
-}
-.delay-1 {
-  animation-delay: 0.3s;
-}
-.delay-2 {
-  animation-delay: 0.6s;
-}
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ---------- Generic Page Sections ---------- */
-.page-hero {
-  text-align: center;
-  padding: 5rem 1rem 3rem;
-  background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
-}
-.page-hero h2 {
-  color: var(--primary);
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-}
-.page-hero p {
-  color: var(--text-light);
-}
-.page-content {
-  padding: 3rem 1.5rem;
-  color: var(--text-dark);
-  background: #fff;
-}
-.page-content h3 {
-  color: var(--primary);
-  margin-top: 1.5rem;
-}
-
-/* ---------- Contact Page ---------- */
-.contact-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-family: var(--font);
-}
-.contact-form textarea {
-  min-height: 120px;
-  resize: none;
-}
-.contact-form button {
-  width: 100%;
-}
-.contact-info h3 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-/* ---------- Auth Pages ---------- */
-.auth-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-  background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
-}
-.auth-container {
-  background: #fff;
-  padding: 2rem 3rem;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  max-width: 400px;
-}
-.auth-container h2 {
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
-.auth-container p {
-  color: var(--text-light);
-  margin-bottom: 1.5rem;
-}
-.auth-form input {
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-family: var(--font);
-}
-.auth-form button {
-  width: 100%;
-  margin-top: 0.5rem;
-}
-.auth-form .switch {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: var(--text-light);
-}
-.auth-form .switch a {
-  color: var(--secondary);
-  text-decoration: none;
-  font-weight: 600;
+  .menu-toggle { display: flex; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; }
+  .footer-bottom-inner { flex-direction: column; gap: 0.5rem; justify-content: center; }
 }
