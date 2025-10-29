@@ -1,4 +1,10 @@
+// =======================================
+// USIU G6 SaaS Website Main Script
+// =======================================
+
 document.addEventListener("DOMContentLoaded", () => {
+
+  // --- Element references ---
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
   const overlay = document.getElementById("menu-overlay");
@@ -8,24 +14,46 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroContent = document.getElementById("heroContent");
   const progressBar = document.getElementById("progress-bar");
 
-  /* ----- Mobile Menu ----- */
+  // ================================
+  // 1. MOBILE MENU TOGGLE & OVERLAY
+  // ================================
   const closeMenu = () => {
     menu.classList.remove("active");
     overlay.classList.remove("active");
     toggle.classList.remove("active");
     toggle.setAttribute("aria-expanded", "false");
   };
+
   const openMenu = () => {
     menu.classList.add("active");
     overlay.classList.add("active");
     toggle.classList.add("active");
     toggle.setAttribute("aria-expanded", "true");
   };
-  toggle.addEventListener("click", () => menu.classList.contains("active") ? closeMenu() : openMenu());
+
+  // Handle menu toggle clicks
+  toggle.addEventListener("click", () => {
+    const isOpen = menu.classList.contains("active");
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Close when overlay or link clicked
   overlay.addEventListener("click", closeMenu);
   menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
 
-  /* ----- Scroll Progress ----- */
+
+  // ================================
+  // 2. STICKY NAVBAR EFFECT
+  // ================================
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) navbar.classList.add("scrolled");
+    else navbar.classList.remove("scrolled");
+  });
+
+
+  // ================================
+  // 3. SCROLL PROGRESS BAR
+  // ================================
   window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const docHeight = document.body.scrollHeight - window.innerHeight;
@@ -33,66 +61,67 @@ document.addEventListener("DOMContentLoaded", () => {
     progressBar.style.width = `${scrollPercent}%`;
   });
 
-  /* ----- Navbar shrink ----- */
+
+  // ================================
+  // 4. SCROLL-TO-TOP BUTTON
+  // ================================
   window.addEventListener("scroll", () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 50);
+    if (window.scrollY > 300) scrollBtn.classList.add("show");
+    else scrollBtn.classList.remove("show");
   });
 
-  /* ----- Scroll-to-top ----- */
-  if (scrollBtn) {
-    window.addEventListener("scroll", () => {
-      scrollBtn.classList.toggle("show", window.scrollY > 300);
-    });
-    scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  }
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
-  /* ----- Parallax Hero ----- */
-  const bg = document.getElementById("parallax-bg");
-  if (bg) {
-    window.addEventListener("scroll", () => {
-      bg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
-    });
-  }
 
-  /* ----- Hero fade-out ----- */
-  if (hero && heroContent) {
-    window.addEventListener("scroll", () => {
-      const fadePoint = hero.offsetHeight * 0.6;
+  // ================================
+  // 5. HERO PARALLAX EFFECT
+  // ================================
+  window.addEventListener("scroll", () => {
+    const bg = document.getElementById("parallax-bg");
+    if (bg) {
       const scrollY = window.scrollY;
-      heroContent.style.opacity = Math.max(0, 1 - scrollY / fadePoint);
-    });
-  }
-
-  /* ----- Cursor Reactive Glow for Footer Socials ----- */
-  const socials = document.querySelectorAll(".footer-socials-bottom .social-btn");
-  socials.forEach(btn => {
-    btn.addEventListener("mousemove", e => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      btn.style.setProperty("--x", `${x}px`);
-      btn.style.setProperty("--y", `${y}px`);
-      btn.dataset.glow = true;
-    });
-    btn.addEventListener("mouseleave", () => {
-      btn.removeAttribute("data-glow");
-    });
+      bg.style.transform = `translateY(${scrollY * 0.4}px)`;
+    }
   });
-});
 
-  /* ----- Mobile Tooltip Tap Support ----- */
+
+  // ================================
+  // 6. HERO TEXT FADE OUT ON SCROLL
+  // ================================
+  window.addEventListener("scroll", () => {
+    if (hero && heroContent) {
+      const heroHeight = hero.offsetHeight;
+      const scrollY = window.scrollY;
+      const fadePoint = heroHeight * 0.6;
+      if (scrollY < fadePoint) {
+        const opacity = 1 - scrollY / fadePoint;
+        heroContent.style.opacity = opacity;
+        heroContent.style.transform = `translateY(${scrollY * 0.2}px)`;
+      } else {
+        heroContent.style.opacity = 0;
+      }
+    }
+  });
+
+
+  // ================================
+  // 7. TOOLTIP SUPPORT FOR MOBILE
+  // ================================
   const socialButtons = document.querySelectorAll(".social-btn");
 
   socialButtons.forEach((btn) => {
     let tooltipVisible = false;
 
+    // Show tooltip on tap
     btn.addEventListener("touchstart", (e) => {
-      e.preventDefault(); // prevent accidental click
+      e.preventDefault(); // avoid accidental click
       tooltipVisible = !tooltipVisible;
 
       if (tooltipVisible) {
         btn.classList.add("show-tooltip");
-        // Hide any others currently open
+        // Hide all other open tooltips
         socialButtons.forEach((b) => {
           if (b !== btn) b.classList.remove("show-tooltip");
         });
@@ -101,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Hide tooltip when tapping elsewhere
+    // Hide tooltip when tapping anywhere else
     document.addEventListener("touchstart", (event) => {
       if (!btn.contains(event.target)) {
         btn.classList.remove("show-tooltip");
@@ -110,13 +139,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-    /* ----- Fancy Ripple Effect on Click ----- */
+
+  // ================================
+  // 8. RIPPLE CLICK ANIMATION
+  // ================================
   document.querySelectorAll(".social-btn, .btn-primary, .btn-outline").forEach((btn) => {
     btn.addEventListener("click", function (e) {
+      // Create ripple span
       const ripple = document.createElement("span");
       ripple.classList.add("ripple");
       this.appendChild(ripple);
 
+      // Calculate position and size
       const rect = this.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height);
       ripple.style.width = ripple.style.height = size + "px";
@@ -126,10 +160,13 @@ document.addEventListener("DOMContentLoaded", () => {
       ripple.style.left = x + "px";
       ripple.style.top = y + "px";
 
+      // Remove ripple after animation
       setTimeout(() => {
         ripple.remove();
       }, 600);
     });
   });
+
+});
 
 
