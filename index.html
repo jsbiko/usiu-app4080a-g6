@@ -31,8 +31,8 @@
       </nav>
 
       <div class="nav-buttons">
-        <a href="login.html" class="btn-outline">Login</a>
-        <a href="signup.html" class="btn-primary">Sign Up</a>
+        <a href="#" class="btn-outline">Login</a>
+        <a href="#" class="btn-primary">Sign Up</a>
       </div>
 
       <div class="nav-socials">
@@ -49,14 +49,16 @@
       </div>
 
       <button class="menu-toggle" id="menu-toggle" aria-label="Menu Toggle" aria-expanded="false" aria-controls="mobile-menu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
     </div>
 
     <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="hero parallax" id="hero">
     <div class="parallax-bg" id="parallax-bg"></div>
     <div class="container hero-content" id="heroContent">
@@ -66,12 +68,12 @@
     </div>
   </section>
 
-  <!-- Features -->
+  <!-- Features Section -->
   <section class="features">
     <div class="container">
       <h2 class="section-title fade-in-up">Powerful Features</h2>
       <div class="features-grid">
-        <div class="feature-card" data-aos="fade-up">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
           <h3>Analytics Dashboard</h3>
           <p>Gain actionable insights from real-time metrics that drive growth.</p>
         </div>
@@ -87,20 +89,20 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- Testimonials Section -->
   <section class="testimonials">
     <div class="container">
       <h2 class="section-title fade-in-up">What Our Users Say</h2>
       <div class="testimonial-grid">
-        <div class="testimonial" data-aos="fade-right">
+        <div class="testimonial" data-aos="fade-right" data-aos-delay="0">
           <p>"USIU G6 transformed our workflow completely. It’s a game-changer!"</p>
           <h4>- Sarah, Product Manager</h4>
         </div>
-        <div class="testimonial" data-aos="fade-up">
+        <div class="testimonial" data-aos="fade-up" data-aos-delay="150">
           <p>"Super intuitive and efficient. Our team productivity has doubled!"</p>
           <h4>- Michael, CEO</h4>
         </div>
-        <div class="testimonial" data-aos="fade-left">
+        <div class="testimonial" data-aos="fade-left" data-aos-delay="300">
           <p>"The analytics and client management tools are simply outstanding."</p>
           <h4>- Linda, Operations Lead</h4>
         </div>
@@ -108,112 +110,124 @@
     </div>
   </section>
 
-  <!-- Pricing -->
+  <!-- Pricing Section -->
   <section class="pricing">
     <div class="container">
       <h2 class="section-title fade-in-up">Choose Your Plan</h2>
       <div class="pricing-grid">
-        <div class="price-card">
-          <h3>Lite</h3><p class="price">$9<span>/mo</span></p>
-          <ul><li>Basic analytics</li><li>5 team members</li><li>Email support</li></ul>
+        <div class="price-card" data-aos="zoom-in" data-aos-delay="0">
+          <h3>Lite</h3>
+          <p class="price">$9<span>/mo</span></p>
+          <ul>
+            <li>Basic analytics</li>
+            <li>5 team members</li>
+            <li>Email support</li>
+          </ul>
           <a href="#" class="btn-primary">Get Started</a>
         </div>
-        <div class="price-card featured">
-          <h3>Express</h3><p class="price">$29<span>/mo</span></p>
-          <ul><li>Advanced analytics</li><li>20 team members</li><li>Priority support</li></ul>
+
+        <div class="price-card featured" data-aos="zoom-in" data-aos-delay="150">
+          <h3>Express</h3>
+          <p class="price">$29<span>/mo</span></p>
+          <ul>
+            <li>Advanced analytics</li>
+            <li>20 team members</li>
+            <li>Priority support</li>
+          </ul>
           <a href="#" class="btn-primary">Get Started</a>
         </div>
-        <div class="price-card">
-          <h3>Premium</h3><p class="price">$59<span>/mo</span></p>
-          <ul><li>Unlimited analytics</li><li>Unlimited members</li><li>24/7 support</li></ul>
+
+        <div class="price-card" data-aos="zoom-in" data-aos-delay="300">
+          <h3>Premium</h3>
+          <p class="price">$59<span>/mo</span></p>
+          <ul>
+            <li>Unlimited analytics</li>
+            <li>Unlimited members</li>
+            <li>24/7 support</li>
+          </ul>
           <a href="#" class="btn-primary">Get Started</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Scroll to Top -->
+  <!-- Scroll-To-Top Button -->
   <button id="scrollTopBtn" class="scroll-top">↑</button>
 
-  <!-- Fancy Footer -->
-  <!-- ===== Fancy Footer ===== -->
-<footer class="site-footer">
-  <!-- Wave Divider -->
-  <svg class="footer-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,40 C240,120 480,0 720,40 C960,80 1200,120 1440,40 L1440,120 L0,120 Z" fill="url(#g)"></path>
-    <defs>
-      <linearGradient id="g" x1="0" x2="1" y1="0" y2="0">
-        <stop offset="0%" stop-color="#1E3A8A" />
-        <stop offset="100%" stop-color="#3B82F6" />
-      </linearGradient>
-    </defs>
-  </svg>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <svg class="footer-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,120 480,0 720,40 C960,80 1200,120 1440,40 L1440,120 L0,120 Z" fill="url(#g)"></path>
+      <defs>
+        <linearGradient id="g" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#1E3A8A"/>
+          <stop offset="100%" stop-color="#3B82F6"/>
+        </linearGradient>
+      </defs>
+    </svg>
 
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <div class="footer-logo">USIU G6</div>
-      <p>Modern tools to manage clients, automate tasks, and grow — all in one elegant platform.</p>
-    </div>
-
-    <div class="footer-links">
-      <h4>Product</h4>
-      <ul>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Integrations</a></li>
-        <li><a href="#">Roadmap</a></li>
-        <li><a href="#">Changelog</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-links">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Press</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-newsletter">
-      <h4>Stay in the loop</h4>
-      <p>Get product updates and tips straight to your inbox.</p>
-      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!')">
-        <input type="email" placeholder="Your email" required />
-        <button class="btn-primary" type="submit">Subscribe</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Bottom Row -->
-  <div class="footer-bottom">
-    <div class="container footer-bottom-inner">
-      <span>© 2025 USIU G6. All rights reserved.</span>
-      <div class="footer-legal">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Security</a>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">USIU G6</div>
+        <p>Modern tools to manage clients, automate tasks, and grow — all in one elegant platform.</p>
       </div>
 
-      <!-- 👇 Fancy Social Buttons -->
-      <div class="footer-socials-bottom">
-        <a href="#" class="social-btn twitter" aria-label="Twitter" data-tooltip="Twitter">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"></path></svg>
-        </a>
-        <a href="#" class="social-btn linkedin" aria-label="LinkedIn" data-tooltip="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"/></svg>
-        </a>
-        <a href="#" class="social-btn github" aria-label="GitHub" data-tooltip="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.5-1.2-1.1-1.6-1.1-1.6-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.5 1.2-3.3-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.2a11.7 11.7 0 0 1 6.2 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 3 .1 3.3.8.8 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.3 5.9.4.3.7.9.7 1.8v2.7c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
-        </a>
+      <div class="footer-links">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Integrations</a></li>
+          <li><a href="#">Roadmap</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay in the loop</h4>
+        <p>Get product updates and tips straight to your inbox.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!')">
+          <input type="email" placeholder="Your email" required />
+          <button class="btn-primary" type="submit">Subscribe</button>
+        </form>
       </div>
     </div>
-  </div>
-</footer>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© 2025 USIU G6. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+        </div>
+
+        <div class="footer-socials-bottom">
+          <a href="#" class="social-btn twitter" aria-label="Twitter" data-tooltip="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"/></svg></a>
+          <a href="#" class="social-btn linkedin" aria-label="LinkedIn" data-tooltip="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"/></svg></a>
+          <a href="#" class="social-btn github" aria-label="GitHub" data-tooltip="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.5-1.2-1.1-1.6-1.1-1.6-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.5 1.2-3.3-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.2a11.7 11.7 0 0 1 6.2 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 3 .1 3.3.8.8 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.3 5.9.4.3.7.9.7 1.8v2.7c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
   <script src="assets/js/script.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({ duration: 1000, once: true, offset: 100 });
+    });
+  </script>
 </body>
 </html>
 
