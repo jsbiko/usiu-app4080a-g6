@@ -419,13 +419,10 @@ section {
   }
 }
 
-/* ---------- Footer Social Buttons + Tooltip + Glow ---------- */
-.footer-socials-bottom {
-  display: flex;
-  gap: 0.8rem;
-}
-.footer-socials-bottom .social-btn {
-  position: relative;
+/* =======================================
+   UNIVERSAL SOCIAL BUTTON + TOOLTIP SYSTEM
+   ======================================= */
+.social-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -433,132 +430,63 @@ section {
   height: 38px;
   border-radius: 50%;
   color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  overflow: visible;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.footer-socials-bottom .social-btn:hover {
-  transform: scale(1.1);
-}
-
-/* Tooltip */
-.footer-socials-bottom .social-btn::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  opacity: 0;
-  pointer-events: none;
-  white-space: nowrap;
-  transition: all 0.25s ease;
-}
-.footer-socials-bottom .social-btn:hover::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-.footer-socials-bottom .social-btn::before {
-  content: "";
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 5px;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-.footer-socials-bottom .social-btn:hover::before {
-  opacity: 1;
-}
-
-/* ---------- Fancy Social Buttons (Footer Bottom Row) ---------- */
-.footer-socials-bottom {
-  display: flex;
-  gap: 0.8rem;
-}
-
-.footer-socials-bottom .social-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.footer-socials-bottom .social-btn:hover {
+.social-btn:hover {
   transform: translateY(-4px) scale(1.05);
 }
 
-.footer-socials-bottom .social-btn::before {
+/* Gradient backgrounds by platform */
+.social-btn.twitter::before {
+  background: linear-gradient(135deg, #1da1f2, #0099ff);
+}
+
+.social-btn.linkedin::before {
+  background: linear-gradient(135deg, #0a66c2, #0077b5);
+}
+
+.social-btn.github::before {
+  background: linear-gradient(135deg, #24292e, #000);
+}
+
+.social-btn::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 50%;
   opacity: 0;
   transition: all 0.3s ease;
+  z-index: 1;
 }
 
-.footer-socials-bottom .social-btn.twitter::before {
-  background: linear-gradient(135deg, #1da1f2, #0099ff);
-}
-
-.footer-socials-bottom .social-btn.linkedin::before {
-  background: linear-gradient(135deg, #0a66c2, #0077b5);
-}
-
-.footer-socials-bottom .social-btn.github::before {
-  background: linear-gradient(135deg, #24292e, #000);
-}
-
-.footer-socials-bottom .social-btn:hover::before {
+.social-btn:hover::before {
   opacity: 1;
 }
 
-.footer-socials-bottom .social-btn svg {
+.social-btn svg {
   width: 18px;
   height: 18px;
   z-index: 2;
   position: relative;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.footer-socials-bottom .social-btn:hover svg {
+.social-btn:hover svg {
   transform: scale(1.1);
 }
 
-@media (max-width: 768px) {
-  .footer-bottom-inner {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .footer-socials-bottom {
-    justify-content: center;
-  }
-}
-
-/* ---------- Tooltip Hover for Social Buttons ---------- */
-.footer-socials-bottom .social-btn::after {
+/* ---------- Tooltip Styling ---------- */
+.social-btn::after {
   content: attr(data-tooltip);
   position: absolute;
   bottom: 120%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: #fff;
   padding: 4px 8px;
   border-radius: 6px;
@@ -570,16 +498,104 @@ section {
   transition: all 0.25s ease;
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 5;
 }
 
-.footer-socials-bottom .social-btn:hover::after {
+.social-btn:hover::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
 
-.footer-socials-bottom .social-btn:hover::before {
-  filter: brightness(1.15);
+@media (max-width: 768px) {
+  .footer-bottom-inner,
+  .nav-socials {
+    justify-content: center;
+  }
 }
+
+/* Show tooltip manually when tapped on mobile */
+.social-btn.show-tooltip::after {
+  opacity: 1 !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+/* ---------- Ripple Animation for Tooltip ---------- */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: rippleEffect 0.6s linear;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+.btn-primary .ripple { background: rgba(255, 255, 255, 0.5); }
+.btn-outline .ripple { background: rgba(30, 58, 138, 0.3); } /* your brand blue */
+.social-btn.github .ripple { background: rgba(255, 255, 255, 0.2); }
+
+/* ---------- Premium Hover Glow Animation ---------- */
+.btn-primary, 
+.btn-outline {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after,
+.btn-outline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-primary:hover::after,
+.btn-outline:hover::after {
+  left: 100%;
+  opacity: 1;
+}
+
+/* Smooth breathing glow on hover */
+.btn-primary:hover {
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.5), 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.btn-outline:hover {
+  box-shadow: 0 0 20px rgba(30, 58, 138, 0.4);
+}
+
+.hero .btn-primary {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0px rgba(59, 130, 246, 0);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+  }
+}
+
 
 
 /* Brand colors */
