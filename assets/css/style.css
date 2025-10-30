@@ -653,7 +653,7 @@ section {
   gap: 0.75rem;
 }
 
-.helper-link {
+.link {
   color: var(--secondary);
   text-decoration: none;
 }
