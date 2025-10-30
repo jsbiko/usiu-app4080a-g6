@@ -116,6 +116,20 @@ body {
   overflow: hidden;
 }
 
+/* Base button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--radius);
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 .btn-primary {
   background: var(--primary);
   color: var(--white);
@@ -572,6 +586,85 @@ section {
 }
 .btn-outline:hover {
   box-shadow: 0 0 20px rgba(30, 58, 138, 0.4);
+}
+
+/* ---------- Auth Pages ---------- */
+.auth {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.auth-header {
+  margin-bottom: 1.25rem;
+}
+
+.auth-lead {
+  color: var(--text-light);
+  margin-bottom: 1.25rem;
+}
+
+.auth-form {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-grid.single {
+  grid-template-columns: 1fr;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--text-dark);
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+  transition: var(--transition);
+  background: #fff;
+}
+
+.input:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.helper-link {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.auth-footer {
+  margin-top: 1rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
 }
 
 /* Hero CTA Pulse */

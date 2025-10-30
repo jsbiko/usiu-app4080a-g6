@@ -32,7 +32,8 @@
   </style>
 </head>
 <body>
-  <header class="navbar">
+  <div id="progress-bar"></div>
+  <header class="navbar" id="navbar">
     <div class="container nav-container">
       <h1 class="logo">USIU G6</h1>
       <nav>
@@ -51,14 +52,11 @@
       </div>
       <div class="menu-toggle" id="menu-toggle">☰</div>
     </div>
+    <div id="menu-overlay" class="menu-overlay"></div>
+    <ul id="mobile-menu" class="nav-links"></ul>
   </header>
-  <main>
-    <section class="hero-bg">
-      <h1>Login to USIU G6</h1>
-      <p>Please enter your credentials to log in. Forgot your password? <a href="contact.html">Contact support</a>.</p>
-      
-    </section>
-  </main>
+
+
   <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">
@@ -95,6 +93,7 @@
   <div class="footer-bottom">
     <p>&copy; 2025 USIU G6. All Rights Reserved.</p>
   </div>
+  <button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top">↑</button>
 </footer>
 </body>
 </html>
