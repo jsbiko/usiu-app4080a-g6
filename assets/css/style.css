@@ -667,6 +667,27 @@ section {
   .form-grid { grid-template-columns: 1fr; }
 }
 
+
+/* ---------- Alerts to show authentication status....(to be deleted) ---------- */
+.alert {
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+.alert-success {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+.alert-error {
+  background: #fef2f2;
+  color: #991b1b;
+  border-color: #fecaca;
+}
+
+
 /* Hero CTA Pulse */
 .hero .btn-primary {
   animation: pulseGlow 3s infinite ease-in-out;
