@@ -32,7 +32,8 @@
   </style>
 </head>
 <body>
-  <header class="navbar">
+  <div id="progress-bar"></div>
+  <header class="navbar" id="navbar">
     <div class="container nav-container">
       <h1 class="logo">USIU G6</h1>
       <nav>
@@ -51,14 +52,65 @@
       </div>
       <div class="menu-toggle" id="menu-toggle">☰</div>
     </div>
+    <div id="menu-overlay" class="menu-overlay"></div>
+    <ul id="mobile-menu" class="nav-links"></ul>
   </header>
+
+<!-- ================= Login form ================= -->
   <main>
     <section class="hero-bg">
-      <h1>Login to USIU G6</h1>
-      <p>Please enter your credentials to log in. Forgot your password? <a href="contact.html">Contact support</a>.</p>
-      
+      <div class="container auth"  style="max-width: 530px;">
+        <h1 class="auth-header">Login to USIU G6</h1>
+        <p class="auth-lead">Welcome back. Forgot your password? <a href="resetpassword.html" class="link">Reset Password</a>.</p>
+
+        <div class="auth-form">
+          <form action="#" 
+          method="post" 
+          autocomplete="on">
+            <div class="form-grid single" 
+            style="gap: 0.9rem;">
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" 
+                name="email" 
+                type="email" 
+                required placeholder="you@example.com" 
+                class="input" />
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" 
+                name="password" 
+                type="password" 
+                required placeholder="Enter your password" 
+                class="input" />
+              </div>
+              
+              <div class="form-actions">
+                <label 
+                style="display:flex; 
+                align-items:center; 
+                gap:0.5rem; 
+                color: var(--text-light);">
+                  <input type="checkbox" name="remember" />
+                  Remember me
+                </label>
+                <a href="contact.html" class="link">Need help?</a>
+              </div>
+              <button type="submit"
+               class="btn btn-primary" 
+               style="width:100%;">Sign In</button>
+            </div>
+          </form>
+
+          <p class="auth-footer">New here? <a href="signup.html" class="link">Create an account</a></p>
+        </div>
+      </div>
     </section>
   </main>
+
   <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">
@@ -95,6 +147,7 @@
   <div class="footer-bottom">
     <p>&copy; 2025 USIU G6. All Rights Reserved.</p>
   </div>
+  <button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top">↑</button>
 </footer>
 </body>
 </html>

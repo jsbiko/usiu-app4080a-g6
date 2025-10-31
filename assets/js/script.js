@@ -167,6 +167,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+
+
+  // ================================
+  // 9. SIMPLE DEMO LOGIN HANDLER ... (To be deleted)
+  // ================================
+  (function setupDemoLogin() {
+    const isLoginPage = window.location.pathname.endsWith("/login.html") || window.location.pathname.endsWith("login.html");
+    if (!isLoginPage) return;
+
+    const authCard = document.querySelector(".auth-card") || document.querySelector(".auth-form");
+    const form = authCard ? authCard.querySelector("form") : null;
+    if (!form) return;
+
+    const showAlert = (message, type) => {
+      if (!authCard) return;
+      // remove existing alerts
+      authCard.querySelectorAll('.alert').forEach(el => el.remove());
+      const div = document.createElement('div');
+      div.className = `alert ${type === 'success' ? 'alert-success' : 'alert-error'}`;
+      div.textContent = message;
+      authCard.appendChild(div);
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = (form.querySelector('#email') || {}).value || '';
+      const password = (form.querySelector('#password') || {}).value || '';
+      if (!email || !password) {
+        showAlert('Please provide both email and password.', 'error');
+        return;
+      }
+      try {
+        const res = await fetch('assets/data/users.json', { cache: 'no-store' });
+        const users = await res.json();
+        const found = (users || []).find(u => (u.email || '').toLowerCase() === email.toLowerCase() && (u.password || '') === password);
+        if (!found) {
+          showAlert('Invalid email or password. Try again.', 'error');
+          return;
+        }
+        // Store demo session
+        const session = { id: found.id, email: found.email, firstName: found.firstName, lastName: found.lastName, role: found.role, ts: Date.now() };
+        localStorage.setItem('g6_session', JSON.stringify(session));
+        showAlert('Login successful! Redirecting…', 'success');
+        const params = new URLSearchParams(window.location.search);
+        const next = params.get('next') || 'index.html';
+        setTimeout(() => { window.location.href = next; }, 1200);
+      } catch (err) {
+        showAlert('Unable to sign in right now. Please try again later.', 'error');
+      }
+    });
+  })();
+
+  //  
+
+
 });
 
 

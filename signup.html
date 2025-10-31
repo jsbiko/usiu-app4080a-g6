@@ -32,7 +32,8 @@
   </style>
 </head>
 <body>
-  <header class="navbar">
+  <div id="progress-bar"></div>
+  <header class="navbar" id="navbar">
     <div class="container nav-container">
       <h1 class="logo">USIU G6</h1>
       <nav>
@@ -51,14 +52,100 @@
       </div>
       <div class="menu-toggle" id="menu-toggle">☰</div>
     </div>
+    <div id="menu-overlay" class="menu-overlay"></div>
+    <ul id="mobile-menu" class="nav-links"></ul>
   </header>
+
+  <!-- ================= Signup form ================= -->
   <main>
     <section class="hero-bg">
-      <h1>Sign Up</h1>
-      <p>Create your account to start using USIU G6 SaaS.</p>
+      <div class="container auth" style="max-width: 690px;">
+        <h1 class="auth-header">Create your account</h1>
 
+        <div class="auth-form">
+          <form action="#" 
+          method="post" 
+          autocomplete="on">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="firstName">First name</label>
+                <input id="firstName" 
+                name="firstName" 
+                type="text" 
+                required placeholder="Enter your first name" 
+                class="input" />
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input id="lastName" 
+                name="lastName" 
+                type="text" 
+                required placeholder="Enter your last name" 
+                class="input" />
+              </div>
+
+              <div class="form-group" 
+              style="grid-column: span 2;">
+                <label for="email">Email</label>
+                <input id="email" 
+                name="email" 
+                type="email" 
+                required placeholder="you@example.com" 
+                class="input" />
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" 
+                name="password" 
+                type="password" 
+                required placeholder="Create a password"
+                 minlength="8" 
+                 class="input" />
+              </div>
+
+              <div class="form-group">
+                <label for="confirmPassword">Confirm password</label>
+                <input id="confirmPassword"
+                 name="confirmPassword" 
+                 type="password"
+                  required placeholder="Repeat password" 
+                  minlength="8" 
+                  class="input" />
+              </div>
+
+              <div class="form-actions" 
+              style="grid-column: span 2;">
+                <label style="display:flex; 
+                align-items:center; 
+                gap:0.5rem; 
+                color: var(--text-light);">
+                  <input type="checkbox" 
+                  name="terms" 
+                  required />
+                  I agree to the Terms and Conditions</a>
+                </label>
+                <a 
+                style="text-decoration: none;"
+                href="login.html" 
+                class="link">Already have an account?</a>
+              </div>
+
+              <div style="grid-column: span 2;">
+                <button 
+                type="submit" 
+                class="btn btn-primary" 
+                style="width:100%;">Create Account</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
+
+
   <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">
@@ -95,6 +182,7 @@
   <div class="footer-bottom">
     <p>&copy; 2025 USIU G6. All Rights Reserved.</p>
   </div>
+  <button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top">↑</button>
 </footer>
 </body>
 </html>
