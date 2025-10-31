@@ -93,24 +93,8 @@ body.dark-theme .icon-btn { border-color: rgba(255,255,255,.12); }
   padding: 0.6rem 1.2rem;
   border-radius: var(--radius);
   font-weight: 500;
-  text-decoration: none;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary {
-  background: var(--primary);
-  color: var(--white);
-}
-
-.btn-primary:hover {
-  background: var(--secondary);
-}
-
-.btn-outline {
-  border: 2px solid var(--primary);
-  color: var(--primary);
+  background: transparent;
+  transition: all 0.3s ease;
 }
 
 .btn-outline:hover {
@@ -531,9 +515,46 @@ input:checked + .slider:before { transform: translateX(26px); }
   flex: 1; min-width: 160px; padding: .7rem .9rem; border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.06); color: #fff;
 }
-.btn-outline:hover {
-  box-shadow: 0 0 20px rgba(30, 58, 138, 0.4);
+.newsletter-form input::placeholder { color: #cbd5e1; }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.12); margin-top: 1.5rem; padding: .8rem 0; color: #cbd5e1; font-size: .95rem; }
+.footer-bottom-inner { display: flex; align-items: center; justify-content: space-between; }
+.footer-legal a { color: #cbd5e1; text-decoration: none; margin-left: 1rem; }
+.footer-legal a:hover { color: #ffffff; }
+
+/* Social buttons + tooltips (kept & polished) */
+.social-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; color: #fff; background: rgba(255, 255, 255, 0.08); transition: all 0.3s ease; position: relative; overflow: hidden; }
+.social-btn:hover { transform: translateY(-4px) scale(1.05); }
+.social-btn::before { content: ""; position: absolute; inset: 0; border-radius: 50%; opacity: 0; transition: all 0.3s ease; z-index: 1; }
+.social-btn.twitter::before { background: linear-gradient(135deg, #1da1f2, #0099ff); }
+.social-btn.linkedin::before { background: linear-gradient(135deg, #0a66c2, #0077b5); }
+.social-btn.github::before { background: linear-gradient(135deg, #24292e, #000); }
+.social-btn:hover::before { opacity: 1; }
+.social-btn svg { width: 18px; height: 18px; z-index: 2; position: relative; transition: transform 0.3s ease; }
+.social-btn:hover svg { transform: scale(1.1); }
+.social-btn::after {
+  content: attr(data-tooltip); position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%) translateY(10px);
+  background: rgba(255, 255, 255, 0.08); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; letter-spacing: 0.3px;
+  white-space: nowrap; opacity: 0; pointer-events: none; transition: all 0.25s ease; backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.15); z-index: 5;
 }
+.social-btn:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+.social-btn.show-tooltip::after { opacity: 1 !important; transform: translateX(-50%) translateY(0) !important; }
+
+/* Navbar socials (always visible) */
+.nav-socials { display: flex; gap: .8rem; align-items: center; }
+.nav-socials .social-btn { background: none; position: relative; width: 36px; height: 36px; box-shadow: 0 0 6px rgba(0, 0, 0, 0.05); }
+.nav-socials .social-btn::before { opacity: 1; }
+.nav-socials .social-btn:hover::before { filter: brightness(1.2); transform: scale(1.05); }
+.nav-socials .social-btn svg { width: 17px; height: 17px; position: relative; z-index: 2; color: #fff; }
+.nav-socials .social-btn::after { bottom: 135%; }
+.nav-socials .social-btn { opacity: 0; animation: fadeInIcons .8s forwards; }
+.nav-socials .social-btn:nth-child(1){ animation-delay: .2s; }
+.nav-socials .social-btn:nth-child(2){ animation-delay: .4s; }
+.nav-socials .social-btn:nth-child(3){ animation-delay: .6s; }
+@keyframes fadeInIcons { from{ opacity: 0; transform: translateY(-5px);} to{ opacity: 1; transform: translateY(0);} }
+
+/* Ripple */
+.ripple { position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.4); transform: scale(0); animation: rippleEffect .6s linear; pointer-events: none; z-index: 0; }
+@keyframes rippleEffect { to{ transform: scale(3.5); opacity: 0; } }
 
 /* Hero CTA pulse */
 .hero .btn-primary { animation: pulseGlow 3s infinite ease-in-out; }
