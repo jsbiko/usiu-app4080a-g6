@@ -87,8 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // ================================
-  // 6. HERO TEXT FADE OUT ON SCROLL
+    // ================================
+  // 6. HERO TEXT FADE ON SCROLL (capped)
   // ================================
   window.addEventListener("scroll", () => {
     if (hero && heroContent) {
@@ -96,14 +96,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const scrollY = window.scrollY;
       const fadePoint = heroHeight * 0.6;
       if (scrollY < fadePoint) {
-        const opacity = 1 - scrollY / fadePoint;
+        const opacity = Math.max(0.75, 1 - scrollY / fadePoint); // don't drop below 0.75
         heroContent.style.opacity = opacity;
-        heroContent.style.transform = `translateY(${scrollY * 0.2}px)`;
+        heroContent.style.transform = `translateY(${Math.min(14, scrollY * 0.12)}px)`; // gentle shift only
       } else {
-        heroContent.style.opacity = 0;
+        heroContent.style.opacity = 0.75;
       }
     }
   });
+
 
 
   // ================================
@@ -223,5 +224,129 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+    // ================================
+  // 9. HERO PARTICLE GLOW BACKGROUND
+  // ================================
+  const canvas = document.getElementById("heroCanvas");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+    const colors = [
+      "rgba(59,130,246,0.40)",  // blue
+      "rgba(30,58,138,0.30)",   // dark blue
+      "rgba(147,197,253,0.35)"  // light blue
+    ];
+    const numParticles = 25;
+    let width, height;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 80 + 30;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < -120 || this.x > width + 120 || this.y < -120 || this.y > height + 120) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+        g.addColorStop(0, this.color);
+        g.addColorStop(1, "transparent");
+        ctx.fillStyle = g;
+        ctx.fillRect(this.x - this.radius, this.y - this.radius, this.radius * 2, this.radius * 2);
+      }
+    }
+
+    function initParticles() { particles = Array.from({ length: numParticles }, () => new Particle()); }
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animateParticles);
+    }
+    initParticles(); animateParticles();
+  }
+
+    // ================================
+  // 10. HERO SCROLL REVEAL ANIMATION
+  // ================================
+  const heroObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  const heroSection = document.querySelector(".hero-grid");
+  if (heroSection) heroObserver.observe(heroSection);
+
+    // ================================
+  // 11. HERO IMAGE PARALLAX MOTION
+  // ================================
+  const heroImg = document.querySelector(".hero-image img");
+
+  if (heroImg) {
+    let mouseX = 0, mouseY = 0;
+    let targetX = 0, targetY = 0;
+
+    // Subtle mouse move parallax (desktop only)
+    window.addEventListener("mousemove", (e) => {
+      if (window.innerWidth > 960) {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 30; // horizontal sway
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 30; // vertical sway
+      }
+    });
+
+    // Scroll-based depth parallax
+    window.addEventListener("scroll", () => {
+      if (window.innerWidth > 960) {
+        const scrollY = window.scrollY;
+        const translateY = scrollY * 0.15; // soft upward shift
+        heroImg.style.transform = `translate(${targetX}px, ${translateY}px) scale(1.03)`;
+      }
+    });
+
+    // Smooth interpolation for mouse motion
+    function animateParallax() {
+      targetX += (mouseX - targetX) * 0.05;
+      targetY += (mouseY - targetY) * 0.05;
+
+      if (window.innerWidth > 960) {
+        heroImg.style.transform = `translate(${targetX}px, ${targetY * 0.2}px) scale(1.03)`;
+            // Optional: dynamic shadow intensity based on mouse movement
+    function updateShadow() {
+      const intensity = Math.min(0.4, Math.abs(mouseX) / 60);
+      heroImg.style.filter = `drop-shadow(${mouseX * 0.2}px ${mouseY * 0.2}px 20px rgba(30,58,138,${intensity}))`;
+      requestAnimationFrame(updateShadow);
+    }
+    updateShadow();
+
+      } else {
+        heroImg.style.transform = `translateY(0)`;
+      }
+
+      requestAnimationFrame(animateParallax);
+    }
+
+    animateParallax();
+  }
+
 
 

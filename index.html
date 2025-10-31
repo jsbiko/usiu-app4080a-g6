@@ -59,14 +59,41 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero parallax" id="hero">
-    <div class="parallax-bg" id="parallax-bg"></div>
-    <div class="container hero-content" id="heroContent">
-      <h2 class="fade-in-up">Manage Your Clients With Ease</h2>
-      <p class="fade-in-up delay-1">Streamline operations, automate tasks, and grow your business faster with USIU G6.</p>
-      <a href="#" class="btn-primary fade-in-up delay-2">Book Your Free Induction</a>
+<section class="hero parallax" id="hero">
+  <!-- particles background -->
+  <canvas id="heroCanvas"></canvas>
+
+  <!-- moving light sweep -->
+  <div class="hero-light"></div>
+
+  <!-- soft overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- hero content -->
+  <div class="container hero-grid" id="heroContent">
+    <!-- left side: text -->
+    <div class="hero-text fade-in-up">
+      <h2>Empower Your Workflow with Clarity</h2>
+      <p>
+        All-in-one platform to manage clients, automate tasks, and scale your business —
+        built for teams that move fast.
+      </p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary">Book Your Free Induction</a>
+        <a href="#features" class="btn-outline">Learn More</a>
+      </div>
     </div>
-  </section>
+
+    <!-- right side: image with animated glow -->
+    <div class="hero-image fade-in-up delay-1">
+      <div class="hero-glow"></div>
+      <img src="assets/img/hero-illustration.svg" alt="USIU G6 SaaS Dashboard" />
+    </div>
+  </div>
+</section>
+
+
+
 
   <!-- Features Section -->
   <section class="features">
