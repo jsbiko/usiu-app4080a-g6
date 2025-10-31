@@ -769,6 +769,8 @@ input:checked + .slider:before { transform: translateX(26px); }
   }
 }
 
+
+
 /* =======================================
-   AUTH LOGIN pAGE STYLES
+          AUTH (LOGIN / SIGNUP) STYLES
    ======================================= */
