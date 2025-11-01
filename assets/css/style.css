@@ -734,8 +734,6 @@ body.dark-theme .icon-btn {
 }
 
 
-
-
 /* Floating icons */
 .floating-icon { position: absolute; width: 70px; height: 70px; background: rgba(79,70,229,.12); border: 1px solid rgba(79,70,229,.2); border-radius: 16px; filter: blur(.3px); animation: float 7s ease-in-out infinite; z-index: 2; }
 .floating-icon.one { top: 18%; left: 8%; }
@@ -783,22 +781,6 @@ section { padding: 4.2rem 0; }
 .testimonial p { color: var(--text-dark); font-size: 1.02rem; }
 .testimonial h4 { color: var(--text-light); margin-top: .6rem; font-weight: 600; }
 
-/* Pricing */
-.pricing { position: relative; }
-.pricing-header { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
-.pricing-toggle { display: inline-flex; align-items: center; gap: .65rem; color: var(--text-light); }
-.switch { position: relative; display: inline-block; width: 56px; height: 30px; }
-.switch input { display: none; }
-.slider { position: absolute; cursor: pointer; inset: 0; background: rgba(2,6,23,.1); border-radius: 999px; transition: .25s ease; }
-.slider:before { content: ""; position: absolute; height: 22px; width: 22px; left: 4px; top: 4px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; transition: .25s ease; }
-input:checked + .slider { background: rgba(79,70,229,.25); }
-input:checked + .slider:before { transform: translateX(26px); }
-
-.price-card .price { font-size: 1.9rem; margin: 1rem 0; }
-.price-card.featured { border: 2px solid rgba(79,70,229,.25); position: relative; }
-.price-card.featured::after {
-  content: "Most Popular"; position: absolute; top: -12px; right: 16px; background: var(--secondary); color: #fff; padding: .2rem .6rem; border-radius: 999px; font-size: .8rem; font-weight: 700;
-}
 
 /* Contact */
 .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: start; }
@@ -1476,164 +1458,319 @@ input:checked + .slider:before { transform: translateX(26px); }
 }
 
 
-/* ==========================
-   PRICING SECTION
-=========================== */
-.pricing-section {
-  padding: 6rem 2rem;
-  background: linear-gradient(to bottom, #f9fbff, #f3f5ff);
-  text-align: center;
+/* =======================================================
+   SAAS PRICING SECTION (FULLY ISOLATED AND BUG-FREE)
+   ======================================================= */
+#saas-pricing {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  padding: 6rem 0;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
-.pricing-section .section-title {
-  font-size: 2.5rem;
+/* Titles */
+#saas-pricing .section-title {
+  text-align: center;
+  font-size: 2.4rem;
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 0.5rem;
 }
 
-.pricing-section .section-subtitle {
-  color: #475569;
-  margin-bottom: 3rem;
+#saas-pricing .section-subtitle {
+  text-align: center;
+  color: #64748b;
   font-size: 1.1rem;
+  margin-bottom: 3rem;
 }
 
-.pricing-grid {
+/* Grid layout */
+#saas-pricing .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   gap: 2rem;
   justify-content: center;
-  align-items: stretch;
 }
 
-.pricing-card {
-  background: #ffffff;
-  border-radius: 1.5rem;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
-}
-
-.pricing-card.featured {
-  background: linear-gradient(145deg, #1e3a8a, #2563eb);
-  color: #fff;
-  transform: scale(1.05);
-}
-
-.pricing-card.featured:hover {
-  transform: scale(1.07);
-}
-
-.badge {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
+/* Card styling */
+#saas-pricing .pricing-card {
   background: #fff;
-  color: #2563eb;
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 0.3rem 0.8rem;
-  border-radius: 9999px;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: visible;
 }
 
-.plan-title {
+#saas-pricing .pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+}
+
+/* Headings */
+#saas-pricing .plan-header {
+  margin-bottom: 1rem;
+}
+
+#saas-pricing .plan-title {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  color: #0f172a;
+  margin-bottom: 0.3rem;
 }
 
-.plan-desc {
+#saas-pricing .plan-desc {
   color: #64748b;
   font-size: 0.95rem;
-  margin-bottom: 1.8rem;
+  line-height: 1.5;
 }
 
-.plan-price {
-  font-size: 2.8rem;
+/* Pricing text */
+#saas-pricing .plan-price {
+  font-size: 2.4rem;
   font-weight: 800;
   color: #1e3a8a;
-  margin-bottom: 1.5rem;
+  margin: 1.3rem 0 1.8rem;
 }
 
-.featured .plan-price {
-  color: #ffffff;
-}
-
-.currency {
+#saas-pricing .plan-price .currency {
   font-size: 1.3rem;
   vertical-align: super;
 }
 
-.period {
+#saas-pricing .plan-price .period {
   font-size: 1rem;
   color: #64748b;
+  font-weight: 500;
 }
 
-.featured .period {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.plan-features {
-  list-style: none;
+/* ============================
+   FIX: List styling isolation
+   ============================ */
+#saas-pricing .plan-features {
+  list-style: none !important;
   padding: 0;
-  margin-bottom: 2rem;
+  margin: 0 0 2rem;
   text-align: left;
 }
 
-.plan-features li {
+#saas-pricing .plan-features li {
+  position: relative;
   margin: 0.6rem 0;
-  font-size: 0.95rem;
-  color: #334155;
+  font-size: 0.97rem;
+  color: #0f172a;
+  padding-left: 1.6rem;
+  line-height: 1.4;
+  list-style-type: none !important;
 }
 
-.featured .plan-features li {
-  color: rgba(255, 255, 255, 0.9);
+/* This ensures no external ::before applies */
+#saas-pricing .plan-features li::marker,
+#saas-pricing .plan-features li::before {
+  all: unset;
 }
 
-.btn-outline,
-.btn-primary {
+/* Add our own clean custom icons */
+#saas-pricing .plan-features li::before {
+  content: "✔";
+  color: #2563eb;
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+}
+
+#saas-pricing .plan-features li.inactive::before {
+  content: "✖";
+  color: #9ca3af;
+}
+
+/* Buttons */
+#saas-pricing .pricing-btn {
   display: inline-block;
   width: 100%;
-  text-align: center;
-  padding: 0.9rem 1.5rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
   font-weight: 600;
-  border-radius: 12px;
+  text-align: center;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.btn-outline {
-  border: 2px solid #2563eb;
-  color: #2563eb;
+#saas-pricing .pricing-btn-outline {
+  border: 2px solid #1e3a8a;
+  color: #1e3a8a;
   background: transparent;
 }
 
-.btn-outline:hover {
-  background: #2563eb;
+#saas-pricing .pricing-btn-outline:hover {
+  background: #1e3a8a;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(30, 58, 138, 0.25);
+}
+
+#saas-pricing .pricing-btn-primary {
+  background: #fff;
+  color: #1e40af;
+}
+
+#saas-pricing .pricing-btn-primary:hover {
+  background: #f1f5ff;
+  transform: translateY(-2px);
+}
+
+/* Featured plan */
+#saas-pricing .pricing-card.featured {
+  background: linear-gradient(180deg, #1e3a8a 0%, #3b82f6 100%);
+  color: #fff;
+  transform: scale(1.03);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.3);
+}
+
+#saas-pricing .pricing-card.featured .plan-title,
+#saas-pricing .pricing-card.featured .plan-desc,
+#saas-pricing .pricing-card.featured .plan-price,
+#saas-pricing .pricing-card.featured .plan-features li,
+#saas-pricing .pricing-card.featured .save-tag {
   color: #fff;
 }
 
-.btn-primary {
-  background: linear-gradient(90deg, #2563eb, #1e3a8a);
-  color: #fff;
-  border: none;
+#saas-pricing .pricing-card.featured .plan-features li::before {
+  color: #a5b4fc;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(90deg, #1d4ed8, #1e40af);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+/* Ribbon Badge (visible & fixed position) */
+#saas-pricing .pricing-card.featured .badge {
+  position: absolute;
+  top: 12px;
+  right: -45px;
+  background: linear-gradient(135deg, #e0e7ff, #ffffff);
+  color: #1e3a8a;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 0.35rem 3rem;
+  transform: rotate(45deg);
+  letter-spacing: 0.6px;
+  box-shadow: 0 2px 6px rgba(30, 58, 138, 0.2);
+  z-index: 5;
 }
 
-/* Responsive tweaks */
+/* Save tag */
+#saas-pricing .save-tag {
+  font-size: 0.9rem;
+  color: #e0e7ff;
+  margin-top: 0.7rem;
+  text-align: center;
+}
+
+/* Footer */
+#saas-pricing .pricing-footer {
+  text-align: center;
+  margin-top: 3rem;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+#saas-pricing .pricing-footer a {
+  color: #1e3a8a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#saas-pricing .pricing-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .pricing-card.featured {
+  #saas-pricing .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #saas-pricing .pricing-card {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  #saas-pricing .pricing-btn {
+    font-size: 0.95rem;
+  }
+
+  #saas-pricing .pricing-card.featured {
     transform: none;
   }
 }
+
+/* =======================================================
+   IMPROVED PRICING ENHANCEMENTS (this is an override – DO NOT DELETE)
+   ======================================================= */
+
+/* Sleek modern ribbon (non-overlapping) */
+#saas-pricing .pricing-card.featured .badge {
+  position: absolute;
+  top: 16px;
+  right: -28px;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, #eef2ff, #c7d2fe);
+  color: #1e3a8a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 2.8rem;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  z-index: 3;
+  letter-spacing: 0.05em;
+}
+
+#saas-pricing .pricing-card.featured .badge:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+
+/* Inactive features */
+#saas-pricing .plan-features li.inactive {
+  color: #94a3b8;
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+#saas-pricing .plan-features li.inactive::before {
+  content: "✖";
+  color: #cbd5e1;
+}
+
+/* Animate featured card */
+#saas-pricing .pricing-card.featured {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.4);
+  }
+}
+
+/* CTA Hover improvement */
+#saas-pricing .pricing-btn:hover {
+  filter: brightness(1.05);
+  transform: scale(1.03);
+}
+
+/* Add subtle spacing fix for better alignment */
+#saas-pricing .plan-features {
+  margin-bottom: 2.5rem;
+}
+
+#saas-pricing .plan-price {
+  margin-bottom: 1.2rem;
+}
+
+
