@@ -1338,7 +1338,6 @@ input:checked + .slider:before { transform: translateX(26px); }
 
 
 
-
 /* =====================================================================================================================
                                                      SITE PAGES STYLES
    ===================================================================================================================== */
@@ -1477,6 +1476,164 @@ input:checked + .slider:before { transform: translateX(26px); }
 }
 
 
-/* =======================================
-          AUTH (LOGIN / SIGNUP) STYLES
-   ======================================= */
+/* ==========================
+   PRICING SECTION
+=========================== */
+.pricing-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, #f9fbff, #f3f5ff);
+  text-align: center;
+}
+
+.pricing-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-section .section-subtitle {
+  color: #475569;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+.pricing-card.featured {
+  background: linear-gradient(145deg, #1e3a8a, #2563eb);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.pricing-card.featured:hover {
+  transform: scale(1.07);
+}
+
+.badge {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: #fff;
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+}
+
+.plan-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.plan-desc {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 1.8rem;
+}
+
+.plan-price {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+}
+
+.featured .plan-price {
+  color: #ffffff;
+}
+
+.currency {
+  font-size: 1.3rem;
+  vertical-align: super;
+}
+
+.period {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+.featured .period {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.plan-features li {
+  margin: 0.6rem 0;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.featured .plan-features li {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-outline,
+.btn-primary {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 0.9rem 1.5rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline {
+  border: 2px solid #2563eb;
+  color: #2563eb;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #2563eb, #1e3a8a);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #1d4ed8, #1e40af);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .pricing-card.featured {
+    transform: none;
+  }
+}
