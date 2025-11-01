@@ -300,6 +300,37 @@ body.dark-theme .icon-btn {
     transform: translateX(0);
   }
 
+  .nav-links.active .mobile-extras,
+.nav-links.active li {
+  animation: fadeSlideIn 0.4s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  /* Ensure mobile menu elements (extras) appear immediately */
+.nav-links,
+.mobile-extras {
+  will-change: transform, opacity;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+/* When the menu becomes active */
+.nav-links.active .mobile-extras {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+/* Hide before activation */
+.mobile-extras {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.3s ease;
+}
+
   .nav-links a {
     font-size: 1.1rem;
     font-weight: 600;
@@ -785,6 +816,32 @@ input:checked + .slider:before { transform: translateX(26px); }
 .scroll-top.show { opacity: 1; visibility: visible; }
 .scroll-top:hover { transform: translateY(-3px); }
 
+/* ---------- Fix Hero Buttons Clickability ---------- */
+.hero {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-overlay,
+.hero-light,
+#heroCanvas {
+  pointer-events: none !important;  /* allow clicks to pass through */
+  z-index: 0 !important;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 5 !important; /* bring text + buttons above all layers */
+}
+
+.hero-ctas a,
+.hero-ctas button {
+  position: relative;
+  z-index: 6 !important;
+  pointer-events: auto !important;  /* ensure they can receive clicks */
+}
+
+
 /* Footer */
 .site-footer { background: linear-gradient(180deg, #0b153a 0%, #0a102f 100%); color: #e5e7eb; position: relative; margin-top: 4rem; }
 .footer-wave { display: block; width: 100%; height: 80px; transform: translateY(-1px); }
@@ -1007,36 +1064,31 @@ input:checked + .slider:before { transform: translateX(26px); }
   }
 }
 
-/* ---------- LOGIN BUTTON FIX ---------- */
+/* ---------- Modern Bold Login Button (Dark Mode Style) ---------- */
 .btn-outline {
-  border: 2px solid var(--primary);
-  color: var(--primary);
-  padding: 0.6rem 1.2rem;
-  border-radius: var(--radius);
+  background: #1e3a8a; /* deep navy blue */
+  color: #ffffff;
+  border: 2px solid #ffffff;
   font-weight: 600;
-  background: rgba(30, 58, 138, 0.1); /* gives it more body on white bg */
+  padding: 0.65rem 1.4rem;
+  border-radius: 0.8rem;
   transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25);
 }
 
 .btn-outline:hover {
-  background: var(--primary);
-  color: #ffffff;
-  box-shadow: 0 0 20px rgba(30, 58, 138, 0.4);
-  transform: translateY(-2px);
+  background: linear-gradient(90deg, #1e40af, #4338ca);
+  border-color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(30, 64, 175, 0.4);
 }
 
-/* stronger version on navbar (desktop) */
-.navbar .btn-outline {
-  border-color: #1e3a8a;
-  color: #1e3a8a;
-  background: rgba(30, 58, 138, 0.15); /* slightly more solid than before */
+.btn-outline:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.4);
 }
 
-.navbar .btn-outline:hover {
-  background: #1e3a8a;
-  color: #ffffff;
-  box-shadow: 0 0 20px rgba(30, 58, 138, 0.45);
-}
 
 /* ======================================
    FINAL MOBILE MENU FIX — ensures
