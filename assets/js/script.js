@@ -348,5 +348,26 @@ document.addEventListener("DOMContentLoaded", () => {
     animateParallax();
   }
 
+  // ==========================
+// FAQ Section Toggle
+// ==========================
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const button = item.querySelector(".faq-question");
+
+    button.addEventListener("click", () => {
+      // Close others
+      faqItems.forEach((el) => {
+        if (el !== item) el.classList.remove("open");
+      });
+
+      // Toggle current
+      item.classList.toggle("open");
+    });
+  });
+});
+
 
 
