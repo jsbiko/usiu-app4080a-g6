@@ -2244,4 +2244,106 @@ footer .footer-bottom a:hover {
   transform: scale(1.1);
 }
 
+/* ==========================
+   HOW IT WORKS SECTION
+========================== */
+.how-it-works-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.how-it-works-section .section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.how-it-works-section .section-subtitle {
+  color: #475569;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.how-step {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem 1.8rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.how-step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
+}
+
+.how-icon {
+  font-size: 2.8rem;
+  color: #2563eb;
+  background: #e0e7ff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.how-step:hover .how-icon {
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.how-step h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.8rem;
+}
+
+.how-step p {
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.how-cta {
+  margin-top: 60px;
+}
+
+.how-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.9rem 2.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.how-btn:hover {
+  background: linear-gradient(90deg, #1d4ed8, #1e40af);
+  transform: translateY(-3px);
+}
+
 
