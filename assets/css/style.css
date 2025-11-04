@@ -2346,4 +2346,118 @@ footer .footer-bottom a:hover {
   transform: translateY(-3px);
 }
 
+/* ==========================
+   FINAL CTA BANNER
+=========================== */
+.cta-banner {
+  background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.cta-banner::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), transparent 70%);
+  animation: ctaGlow 18s linear infinite;
+  filter: blur(80px);
+  opacity: 0.3;
+}
+
+@keyframes ctaGlow {
+  0% { transform: translate(0, 0); opacity: 0.3; }
+  50% { transform: translate(10%, 10%); opacity: 0.6; }
+  100% { transform: translate(0, 0); opacity: 0.3; }
+}
+
+.cta-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-content h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  color: #e0e7ff;
+  margin-bottom: 2rem;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-btn-primary,
+.cta-btn-outline {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-btn-primary {
+  background: #ffffff;
+  color: #1e3a8a;
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+}
+
+.cta-btn-primary:hover {
+  background: #f1f5f9;
+  transform: translateY(-3px);
+}
+
+.cta-btn-outline {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  background: transparent;
+}
+
+.cta-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cta-banner {
+    padding: 70px 20px;
+  }
+  .cta-content h2 {
+    font-size: 1.8rem;
+  }
+  .cta-content p {
+    font-size: 1rem;
+  }
+  .cta-actions {
+    flex-direction: column;
+  }
+  .cta-btn-primary,
+  .cta-btn-outline {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
 
