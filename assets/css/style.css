@@ -2460,4 +2460,154 @@ footer .footer-bottom a:hover {
   }
 }
 
+/* ==========================
+   Testimonials Section
+=========================== */
+.testimonials-section {
+  padding: 80px 0;
+  background: #f8faff;
+  text-align: center;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-quote {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-name {
+  font-weight: 700;
+  color: #111;
+}
+
+.author-title {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ==========================
+   Integration Section
+=========================== */
+.integration-section {
+  background: linear-gradient(to bottom, #f8faff 0%, #ffffff 100%);
+  text-align: center;
+  padding: 80px 0;
+}
+
+.integration-section .section-title {
+  color: #1d1e25;
+  margin-bottom: 2rem;
+}
+
+.integration-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.integration-logos img {
+  width: 60px;
+  height: 60px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+}
+
+.integration-logos img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonials-section,
+  .integration-section {
+    padding: 60px 1rem;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+
+  .integration-logos img {
+    width: 50px;
+    height: 50px;
+  }
+}
+/* --- Integrations Section (Unique) --- */
+.integrations {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to bottom, #f9faff, #eef2fb);
+}
+
+.integrations h2 {
+  font-size: 1.8rem;
+  color: #111;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.integration-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.integration-logos img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Make icons colorful (remove black tint) */
+.integration-logos img {
+  filter: none !important;
+}
+
+/* Optional hover effect */
+.integration-logos img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+
 
