@@ -2829,6 +2829,78 @@ footer .footer-bottom a:hover {
     height: 50px;
   }
 }
+/* =======================================
+   OUR TEAM (DEVELOPERS PAGE)
+======================================= */
+.team-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.team-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(2, 6, 23, 0.06);
+  padding: 2rem 1.2rem;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(30, 58, 138, 0.15);
+}
+
+.team-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid #e0e7ff;
+}
+
+.team-card h3 {
+  color: var(--primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.team-card .role {
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.team-card .bio {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.team-socials {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+/* CTA Section */
+.team-cta {
+  margin-top: 4rem;
+  background: linear-gradient(135deg, #1e3a8a, #3730a3);
+  color: #fff;
+  border-radius: 14px;
+  padding
 
 
 
