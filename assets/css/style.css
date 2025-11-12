@@ -2829,27 +2829,28 @@ footer .footer-bottom a:hover {
     height: 50px;
   }
 }
-/* =======================================
-   OUR TEAM (DEVELOPERS PAGE)
-======================================= */
+
+/* ===========================
+   TEAM SECTION (FINAL DESIGN)
+=========================== */
 .team-section {
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
-  padding: 5rem 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  padding: 5rem 1.5rem 6rem;
   text-align: center;
 }
 
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  gap: 2.5rem;
+  margin-top: 3.5rem;
 }
 
 .team-card {
-  background: #ffffff;
+  background: #fff;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(2, 6, 23, 0.06);
-  padding: 2rem 1.2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  padding: 2.5rem 1.2rem;
   transition: all 0.35s ease;
   position: relative;
   overflow: hidden;
@@ -2857,33 +2858,39 @@ footer .footer-bottom a:hover {
 
 .team-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(30, 58, 138, 0.15);
+  box-shadow: 0 15px 35px rgba(30, 64, 175, 0.15);
 }
 
 .team-photo img {
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
   border: 4px solid #e0e7ff;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-photo img {
+  transform: scale(1.05);
 }
 
 .team-card h3 {
-  color: var(--primary);
-  font-size: 1.25rem;
+  color: #1e3a8a;
+  font-size: 1.2rem;
   margin-bottom: 0.25rem;
 }
 
 .team-card .role {
-  color: var(--secondary);
+  color: #3730a3;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  font-size: 0.95rem;
 }
 
 .team-card .bio {
-  color: var(--text-light);
-  font-size: 0.95rem;
+  color: #6b7280;
+  font-size: 0.9rem;
   line-height: 1.5;
   margin-bottom: 1rem;
 }
@@ -2894,13 +2901,71 @@ footer .footer-bottom a:hover {
   gap: 0.8rem;
 }
 
+.social {
+  color: #1e3a8a;
+  background: #eef2ff;
+  border-radius: 50%;
+  padding: 0.6rem 0.7rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.social:hover {
+  background: #1e3a8a;
+  color: #fff;
+  transform: scale(1.1);
+}
+
 /* CTA Section */
 .team-cta {
-  margin-top: 4rem;
-  background: linear-gradient(135deg, #1e3a8a, #3730a3);
+  margin-top: 5rem;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
   color: #fff;
-  border-radius: 14px;
-  padding
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.25);
+}
 
+.team-cta h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
 
+.team-cta p {
+  max-width: 600px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.cta-btn {
+  margin-top: 1rem;
+  background: #fff;
+  color: #1e3a8a !important;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #e0e7ff;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .team-cta {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .team-card {
+    padding: 2rem 1rem;
+  }
+}
 
