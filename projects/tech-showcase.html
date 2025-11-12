@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Stack Showcase | USIU G6</title>
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0b5c64e.js" crossorigin="anonymous"></script>
+  <style>
+    /* Page-specific styling */
+    .showcase-section {
+      background: linear-gradient(135deg, #f8fafc, #eef2ff);
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .tech-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border-top: 4px solid #2563eb;
+    }
+    .tech-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15);
+    }
+    .tech-card i {
+      font-size: 2.5rem;
+      color: #2563eb;
+      margin-bottom: 1rem;
+    }
+    .tech-card h3 {
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 0.4rem;
+    }
+    .tech-card p {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .tech-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .tech-btn {
+      background: #2563eb;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .tech-btn:hover {
+      background: #1e40af;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .tech-card { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="progress-bar"></div>
+  
+  <!-- ==========================
+       NAVBAR/header section
+  =========================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+
+      <!-- Logo -->
+      <div class="logo">USIU G6</div>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="nav-links" id="mobile-menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="our-work.html">Sample Projects</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="our-team.html">Developers</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+          <!-- Mobile-only extras -->
+          <div class="mobile-extras">
+            <div class="nav-buttons">
+              <a href="login.html" class="btn-outline">Login</a>
+              <a href="signup.html" class="btn-primary">Sign Up</a>
+            </div>
+
+            <div class="nav-socials">
+              <a href="#" class="social-btn twitter" aria-label="Twitter" data-tooltip="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"/>
+                </svg>
+              </a>
+              <a href="#" class="social-btn linkedin" aria-label="LinkedIn" data-tooltip="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </ul>
+      </nav>
+
+      <!-- Desktop buttons (hidden on mobile) -->
+      <div class="nav-buttons">
+        <a href="login.html" class="btn-outline">Login</a>
+        <a href="signup.html" class="btn-primary">Sign Up</a>
+      </div>
+
+      <!-- Desktop socials (hidden on mobile) -->
+      <div class="nav-socials">
+        <a href="#" class="social-btn twitter" data-tooltip="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"/>
+          </svg>
+        </a>
+        <a href="#" class="social-btn linkedin" data-tooltip="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Hamburger -->
+      <div class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+    </div>
+    <div class="menu-overlay" id="menu-overlay"></div>
+  </header>
+
+  <!-- ==========================
+       TECH SHOWCASE SECTION
+  =========================== -->
+  <section class="showcase-section">
+    <div class="container">
+      <h2 class="section-title">Our Tech Stack Showcase</h2>
+      <p class="section-subtitle">Explore small but powerful features built with different technologies we use at USIU G6.</p>
+
+      <div class="showcase-grid">
+
+        <!-- Java -->
+        <div class="tech-card">
+          <i class="fa-brands fa-java"></i>
+          <h3>Java Task Manager</h3>
+          <p>A simple task management desktop app built using Java Swing, showcasing OOP and GUI event handling.</p>
+          <div class="tech-links">
+            <a href="#" class="tech-btn">View Code</a>
+            <a href="#" class="tech-btn">Try Demo</a>
+          </div>
+        </div>
+
+        <!-- PHP -->
+        <div class="tech-card">
+          <i class="fa-brands fa-php"></i>
+          <h3>PHP Contact Form</h3>
+          <p>Secure contact form with validation, using PHP and MySQL. Handles data with prepared statements for safety.</p>
+          <div class="tech-links">
+            <a href="#" class="tech-btn">View Code</a>
+            <a href="#" class="tech-btn">Try Demo</a>
+          </div>
+        </div>
+
+        <!-- Python -->
+        <div class="tech-card">
+          <i class="fa-brands fa-python"></i>
+          <h3>Flask Weather App</h3>
+          <p>Fetches real-time weather data via API using Python Flask — a quick backend + frontend demonstration.</p>
+          <div class="tech-links">
+            <a href="#" class="tech-btn">View Code</a>
+            <a href="#" class="tech-btn">Try Demo</a>
+          </div>
+        </div>
+
+        <!-- Tailwind -->
+        <div class="tech-card">
+          <i class="fa-brands fa-css3-alt"></i>
+          <h3>Tailwind Pricing Toggle</h3>
+          <p>Interactive toggle component switching between monthly and annual pricing. Built using Tailwind CSS and JS.</p>
+          <div class="tech-links">
+            <a href="#" class="tech-btn">View Code</a>
+            <a href="#" class="tech-btn">Try Demo</a>
+          </div>
+        </div>
+
+        <!-- JS Chart -->
+        <div class="tech-card">
+          <i class="fa-brands fa-js"></i>
+          <h3>Chart.js Analytics Widget</h3>
+          <p>Lightweight dashboard widget visualizing user engagement data in real-time using Chart.js.</p>
+          <div class="tech-links">
+            <a href="#" class="tech-btn">View Code</a>
+            <a href="#" class="tech-btn">Try Demo</a>
+          </div>
+        </div>
+
+        <!-- Python AI -->
+        <div class="tech-card">
+          <i class="fa-solid fa-brain"></i>
+          <h3>AI Sentiment Analyzer</h3>
+          <p>Mini AI demo using Python’s TextBlob for sentiment detection. Classifies text as positive, neutral, or negative.</p>
+          <div class="tech-links">
+            <a href="#" class="tech-btn">View Code</a>
+            <a href="#" class="tech-btn">Try Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p style="text-align:center; padding:1rem; color:#9ca3af;">
+      © 2025 USIU G6 — All Rights Reserved. Crafted with ❤️ using HTML, Tailwind, and JS.
+    </p>
+  </footer>
+</body>
+</html>
