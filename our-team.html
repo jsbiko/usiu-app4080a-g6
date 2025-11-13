@@ -255,5 +255,22 @@
       AOS.init({ duration: 1000, once: true, offset: 100 });
     });
   </script>
+  <!-- Fade-up Animation Script for profiles-->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const revealElements = document.querySelectorAll(".fade-up");
+    const revealOnScroll = () => {
+      revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll(); // run once at start
+  });
+</script>
+
 </body>
 </html>
