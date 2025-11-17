@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Service Finder</title>
+  <style>
+    /* COLORS */
+    :root {
+      --primary-color: #5c4fff; /* purple */
+      --background-color: #f9f9fb;
+      --card-background: #ffffff;
+      --text-color: #333333;
+      --button-color: #5c4fff;
+      --button-text: #ffffff;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: var(--button-text);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .search-container {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .search-container input, .search-container select {
+      flex: 1;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .search-container button {
+      background-color: var(--button-color);
+      color: var(--button-text);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background-color: #4533cc;
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background-color: var(--card-background);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+
+    .card p {
+      margin: 0.5rem 0;
+      color: var(--text-color);
+    }
+
+    .why-choose-us {
+      background-color: #e6e0ff;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .why-choose-us h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .why-choose-us p {
+      max-width: 700px;
+      margin: auto;
+      color: var(--text-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666666;
+    }
+
+    @media (max-width: 600px) {
+      .results {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Local Service Finder</h1>
+  </header>
+
+  <main>
+    <div class="search-container">
+      <input type="text" id="location" placeholder="Type your neighborhood, e.g., Kilimani">
+      <select id="service-type">
+        <option value="">Select service type</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Tutor">Tutor</option>
+        <option value="Gym">Gym</option>
+        <option value="Mechanic">Mechanic</option>
+        <option value="Car Wash">Car Wash</option>
+        <option value="Hair Stylist">Hair Stylist</option>
+        <option value="Painter">Painter</option>
+        <option value="Cleaner">Cleaner</option>
+      </select>
+      <button onclick="searchServices()">Search</button>
+    </div>
+
+    <div class="results" id="results">
+      <!-- Default service cards are dynamically generated below -->
+    </div>
+
+    <div class="why-choose-us">
+      <h2>Why Choose Us?</h2>
+      <p>We connect you to verified local service providers in your area with ease. Save time, get quality services, and find professionals near you for plumbing, tutoring, gyms, mechanics, and more—all at your fingertips!</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Local Service Finder
+  </footer>
+
+  <script>
+    // Array of all local service providers
+    const services = [
+      {name: "Joe's Plumbing", type: "Plumber", locations: ["Nairobi", "Kilimani", "Roysambu"], contact: "0712345678"},
+      {name: "Elite Tutors", type: "Tutor", locations: ["Nairobi", "Westlands"], contact: "0723456789"},
+      {name: "Spark Electricians", type: "Electrician", locations: ["Kisumu", "Nyali"], contact: "0734567890"},
+      {name: "FitLife Gym", type: "Gym", locations: ["Nairobi", "Kilimani"], contact: "0745678901"},
+      {name: "AutoFix Mechanics", type: "Mechanic", locations: ["Nakuru", "Naivasha"], contact: "0756789012"},
+      {name: "Bright Minds Tutors", type: "Tutor", locations: ["Kisumu", "Mamboleo"], contact: "0767890123"},
+      {name: "QuickFix Plumbing", type: "Plumber", locations: ["Nakuru", "Kahawa"], contact: "0778901234"},
+      {name: "Pro Hair Studio", type: "Hair Stylist", locations: ["Westlands", "Parklands"], contact: "0789012345"},
+      {name: "Sparkle Car Wash", type: "Car Wash", locations: ["Nairobi", "Kilimani"], contact: "0790123456"},
+      {name: "Ace Painters", type: "Painter", locations: ["Kikuyu", "Ngong"], contact: "0701234567"},
+      {name: "CleanRight", type: "Cleaner", locations: ["Nairobi", "Roysambu"], contact: "0712349876"}
+    ];
+
+    const resultsDiv = document.getElementById('results');
+
+    // Display 4 random default services when page loads
+    function showDefaultServices() {
+      resultsDiv.innerHTML = '';
+      const shuffledServices = [...services].sort(() => 0.5 - Math.random());
+      const defaultServices = shuffledServices.slice(0, 4);
+
+      defaultServices.forEach(service => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+          <h3>${service.name}</h3>
+          <p>Type: ${service.type}</p>
+          <p>Location: ${service.locations[0]}</p>
+          <p>Contact: ${service.contact}</p>
+        `;
+        resultsDiv.appendChild(card);
+      });
+    }
+
+    // Run default services on page load
+    showDefaultServices();
+
+    // Search services based on location and type
+    function searchServices() {
+      const userLocation = document.getElementById('location').value.toLowerCase();
+      const selectedService = document.getElementById('service-type').value;
+
+      const matchedServices = services.filter(service => {
+        const locationMatch = service.locations.some(loc => loc.toLowerCase().includes(userLocation));
+        const typeMatch = selectedService ? service.type === selectedService : true;
+        return locationMatch && typeMatch;
+      });
+
+      displayServices(matchedServices);
+    }
+
+    // Display search results or no results message
+    function displayServices(serviceArray) {
+      resultsDiv.innerHTML = '';
+
+      if(serviceArray.length === 0) {
+        resultsDiv.innerHTML = '<p>No services found. Try changing location or service type.</p>';
+        return;
+      }
+
+      serviceArray.forEach(service => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+          <h3>${service.name}</h3>
+          <p>Type: ${service.type}</p>
+          <p>Location: ${service.locations[0]}</p>
+          <p>Contact: ${service.contact}</p>
+        `;
+        resultsDiv.appendChild(card);
+      });
+    }
+  </script>
+
+</body>
+</html>
