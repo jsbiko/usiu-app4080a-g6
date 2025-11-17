@@ -8,6 +8,75 @@
   <!-- Fonts & Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="assets/js/script.js"></script>
+  <!--AOS SCRIPT for mobile toggle -->
+  <script src="assets/js/aos.js"></script>
+  <script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+    easing: 'ease-in-out',
+  });
+</script>
+<!--AOS SCRIPT for mobile toggle end -->
+<!-- Font Awesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 80px 120px;
+      gap: 60px;
+    }
+
+    .hero-bg {
+      background: linear-gradient(to bottom right, #ebf8ff, #ffffff);
+    }
+
+    .hero h1 {
+      font-size: 96px;
+      margin: 0 0 40px;
+      font-weight: 300;
+    }
+
+    .left-text {
+      font-size: 40px;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    .right-text {
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+    
+    .subtext {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #555;
+      line-height: 1.5;
+      max-width: 420px;
+    }
+
+    .team {
+      margin-top: 40px;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 5px;
+      width: fit-content;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 <body>
@@ -87,11 +156,37 @@
     <div class="menu-overlay" id="menu-overlay"></div>
   </header>
   <main>
-    <section class="hero-bg">
-      <h1>About USIU G6</h1>
-      <p>USIU G6 is a cutting-edge SaaS platform designed to streamline client management and enhance productivity.</p>
-
+    <section class="hero">
+      <div>
+        <h1>What we do</h1>
+        <div class="left-text">
+          USIU G6 is a cutting-edge SaaS platform designed to streamline client management 
+          and enhance productivity.
+        </div>
+      </div>
+    
+      <div>
+        <div class="right-text">
+          We are driven by a passion for innovation, problem-solving, and building practical 
+          digital solutions that empower organizations to work smarter. Our mission is to 
+          translate real-world challenges into modern, intuitive, and scalable software tools.
+        </div>
+    
+        <div class="subtext">
+          Our goal is simple:<br>
+          To empower teams, transform processes, and shape tomorrow’s digital landscape 
+          — one solution at a time.
+        </div>
+    
+        <div class="platforms">
+          <a href="our-team.html">
+          Our Team →
+        </a>
+        </div>
+      </div>
     </section>
+    
+    
   </main>
   <!-- ================= FOOTER ================= -->
   <!-- Scroll-To-Top Button -->
