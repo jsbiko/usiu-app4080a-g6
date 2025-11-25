@@ -234,13 +234,6 @@
                 <!-- Disable captcha -->
                 <input type="hidden" name="_captcha" value="false" />
 
-                <!-- Success page -->
-                <input
-                  type="hidden"
-                  name="_next"
-                  value="http://localhost:5000/contact.html?success=true"
-                />
-
                 <div class="form-group">
                   <label for="name">Name</label>
                   <input
@@ -289,9 +282,14 @@
                   ></textarea>
                 </div>
 
-                <button type="submit" class="btn-primary contact-submit-btn">
-                  Send Message
+                <button
+                  type="submit"
+                  class="btn-primary contact-submit-btn"
+                  id="contactSubmitBtn"
+                >
+                  <span id="btnText">Send Message</span>
                   <svg
+                    id="btnIcon"
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
                     height="20"
@@ -408,65 +406,57 @@
       document.addEventListener("DOMContentLoaded", () => {
         AOS.init({ duration: 1000, once: true, offset: 100 });
 
-        // Check if form was successfully submitted
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get("success") === "true") {
-          // Show success message
-          const successDiv = document.createElement("div");
-          successDiv.style.cssText = `
-          position: fixed;
-          top: 100px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: linear-gradient(135deg, #10b981, #059669);
-          color: white;
-          padding: 1.2rem 2rem;
-          border-radius: 0.8rem;
-          box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
-          z-index: 10000;
-          font-weight: 600;
-          animation: slideDown 0.5s ease;
-        `;
-          successDiv.innerHTML =
-            "✓ Message sent successfully! We'll get back to you soon.";
-          document.body.appendChild(successDiv);
+        // Handle contact form submission
+        const contactForm = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("contactSubmitBtn");
+        const btnText = document.getElementById("btnText");
+        const btnIcon = document.getElementById("btnIcon");
 
-          // Remove success message after 5 seconds
-          setTimeout(() => {
-            successDiv.style.animation = "slideUp 0.5s ease";
-            setTimeout(() => successDiv.remove(), 500);
-          }, 5000);
+        contactForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
 
-          // Clean URL
-          window.history.replaceState(
-            {},
-            document.title,
-            window.location.pathname
-          );
-        }
+          submitBtn.disabled = true;
+          btnText.textContent = "Submitting...";
+          btnIcon.style.display = "none";
+
+          // Get form data
+          const formData = new FormData(contactForm);
+
+          try {
+            // Submit form
+            const response = await fetch(contactForm.action, {
+              method: "POST",
+              body: formData,
+              headers: {
+                Accept: "application/json",
+              },
+            });
+
+            // Reset button
+            submitBtn.disabled = false;
+            btnText.textContent = "Send Message";
+            btnIcon.style.display = "inline";
+
+            // Show success dialog
+            alert(
+              "Thank you for contacting us! We will get back to you as soon as possible."
+            );
+
+            // Reset form
+            contactForm.reset();
+          } catch (error) {
+            // Reset button
+            submitBtn.disabled = false;
+            btnText.textContent = "Send Message";
+            btnIcon.style.display = "inline";
+
+            // Show error dialog
+            alert(
+              "Sorry, there was an error sending your message. Please try again."
+            );
+          }
+        });
       });
     </script>
-    <style>
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateX(-50%) translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(-50%) translateY(0);
-        }
-      }
-      @keyframes slideUp {
-        from {
-          opacity: 1;
-          transform: translateX(-50%) translateY(0);
-        }
-        to {
-          opacity: 0;
-          transform: translateX(-50%) translateY(-20px);
-        }
-      }
-    </style>
   </body>
 </html>

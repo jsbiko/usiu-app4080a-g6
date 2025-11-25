@@ -67,17 +67,6 @@
           </p>
 
           <div class="auth-form">
-            <div
-              id="loginMessage"
-              style="
-                display: none;
-                padding: 0.8rem;
-                border-radius: 8px;
-                margin-bottom: 1rem;
-                text-align: center;
-              "
-            ></div>
-
             <form id="loginForm" autocomplete="on">
               <div class="form-grid single" style="gap: 0.9rem">
                 <div class="form-group">
@@ -240,17 +229,6 @@
         // Login form handler
         const loginForm = document.getElementById("loginForm");
         const loginBtn = document.getElementById("loginBtn");
-        const loginMessage = document.getElementById("loginMessage");
-
-        function showMessage(message, isError = false) {
-          loginMessage.textContent = message;
-          loginMessage.style.display = "block";
-          loginMessage.style.backgroundColor = isError ? "#fee2e2" : "#d1fae5";
-          loginMessage.style.color = isError ? "#991b1b" : "#065f46";
-          loginMessage.style.border = isError
-            ? "1px solid #fca5a5"
-            : "1px solid #6ee7b7";
-        }
 
         loginForm.addEventListener("submit", async (e) => {
           e.preventDefault();
@@ -272,10 +250,7 @@
             // Redirect immediately without showing message
             window.location.href = redirectUrl || "/index.html";
           } catch (error) {
-            showMessage(
-              error.message || "Login failed. Please try again.",
-              true
-            );
+            alert(error.message || "Login failed. Please try again.");
             loginBtn.disabled = false;
             loginBtn.textContent = "Sign In";
           }
