@@ -325,15 +325,13 @@
 
           try {
             await window.AuthAPI.register(firstName, lastName, email, password);
-            showMessage("Account created successfully! Redirecting...");
 
             // Check for redirect URL
             const redirectUrl = sessionStorage.getItem("redirectAfterLogin");
             sessionStorage.removeItem("redirectAfterLogin");
 
-            setTimeout(() => {
-              window.location.href = redirectUrl || "/index.html";
-            }, 1000);
+            // Redirect immediately without showing message
+            window.location.href = redirectUrl || "/index.html";
           } catch (error) {
             showMessage(
               error.message || "Signup failed. Please try again.",

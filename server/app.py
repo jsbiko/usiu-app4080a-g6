@@ -198,7 +198,6 @@ def forgot_password():
         
         user = User.query.filter_by(email=data['email'].lower()).first()
         
-        # Always return success even if user doesn't exist (security)
         if not user:
             return jsonify({'message': 'If the email exists, a reset link has been sent'}), 200
         
@@ -209,13 +208,12 @@ def forgot_password():
         
         db.session.commit()
         
-        # In production, send email with reset link
-        # For now, we'll return the token (REMOVE IN PRODUCTION)
+        # will send email with reset link in production
         reset_url = f"http://localhost:5000/client/resetpassword.html?token={reset_token}"
         
         return jsonify({
             'message': 'If the email exists, a reset link has been sent',
-            'reset_url': reset_url  # REMOVE IN PRODUCTION
+            'reset_url': reset_url  # to be removed in production
         }), 200
         
     except Exception as e:

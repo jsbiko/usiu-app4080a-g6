@@ -2,7 +2,7 @@
 
 # USIU G6 SaaS Platform - Startup Script
 
-echo "🚀 Starting USIU G6 SaaS Platform..."
+echo "Starting USIU G6 SaaS Platform..."
 echo ""
 
 # Navigate to server directory

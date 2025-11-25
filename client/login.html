@@ -264,15 +264,13 @@
 
           try {
             await window.AuthAPI.login(email, password);
-            showMessage("Login successful! Redirecting...");
 
             // Check for redirect URL
             const redirectUrl = sessionStorage.getItem("redirectAfterLogin");
             sessionStorage.removeItem("redirectAfterLogin");
 
-            setTimeout(() => {
-              window.location.href = redirectUrl || "/index.html";
-            }, 1000);
+            // Redirect immediately without showing message
+            window.location.href = redirectUrl || "/index.html";
           } catch (error) {
             showMessage(
               error.message || "Login failed. Please try again.",

@@ -54,15 +54,30 @@ async function apiRequest(endpoint, method = "GET", data = null) {
 
 // Check Authentication Status
 async function checkAuthStatus() {
+  // If token doesn't exist, user is not authenticated
   if (!TokenManager.exists()) {
     return false;
   }
 
+  // If user data exists in localStorage, assume authenticated
+  // This avoids unnecessary API calls on every page load
+  if (UserManager.get()) {
+    return true;
+  }
+
+  // Only verify with API if user data is missing
   try {
     const result = await apiRequest("/verify-token", "GET");
-    return result.valid;
+    if (result.valid) {
+      return true;
+    } else {
+      // Token is invalid
+      TokenManager.remove();
+      UserManager.remove();
+      return false;
+    }
   } catch (error) {
-    // Token is invalid
+    // Token is invalid or network error
     TokenManager.remove();
     UserManager.remove();
     return false;
@@ -86,11 +101,17 @@ function isProtectedPage() {
 
 // IMMEDIATE PROTECTION - Hide page before it renders if protected and not logged in
 (function () {
-  if (isProtectedPage() && !TokenManager.exists()) {
-    // Immediately hide body and redirect
-    document.documentElement.style.visibility = "hidden";
-    const returnUrl = encodeURIComponent(window.location.pathname);
-    window.location.replace(`/login.html?return=${returnUrl}`);
+  if (isProtectedPage()) {
+    // Check if user has token AND user data (both required for authentication)
+    const hasToken = TokenManager.exists();
+    const hasUserData = !!UserManager.get();
+    
+    if (!hasToken || !hasUserData) {
+      // Immediately hide page and redirect
+      document.documentElement.style.visibility = "hidden";
+      const returnUrl = encodeURIComponent(window.location.pathname);
+      window.location.replace(`/login.html?return=${returnUrl}`);
+    }
   }
 })();
 
@@ -100,20 +121,11 @@ function redirectToLogin() {
   window.location.href = `/login.html?return=${returnUrl}`;
 }
 
-// Initialize page protection
+// Initialize page protection (simplified - main check is done above)
 async function initPageProtection() {
-  if (isProtectedPage()) {
-    // Hide page content immediately
-    document.body.style.visibility = "hidden";
-
-    const isAuthenticated = await checkAuthStatus();
-    if (!isAuthenticated) {
-      redirectToLogin();
-    } else {
-      // Show content if authenticated
-      document.body.style.visibility = "visible";
-    }
-  }
+  // The immediate IIFE above handles protection
+  // This function is kept for compatibility but does nothing now
+  // since we rely on synchronous localStorage checks
 }
 
 // Update Navigation Based on Auth Status

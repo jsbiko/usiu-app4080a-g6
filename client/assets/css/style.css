@@ -145,11 +145,33 @@ body.dark-theme .navbar {
   color: var(--text-dark);
   font-weight: 600;
   transition: var(--transition);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--secondary);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  font-weight: 700;
 }
 
 /* ---------- Right-Side Actions ---------- */
