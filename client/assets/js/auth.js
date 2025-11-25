@@ -105,7 +105,7 @@ function isProtectedPage() {
     // Check if user has token AND user data (both required for authentication)
     const hasToken = TokenManager.exists();
     const hasUserData = !!UserManager.get();
-    
+
     if (!hasToken || !hasUserData) {
       // Immediately hide page and redirect
       document.documentElement.style.visibility = "hidden";

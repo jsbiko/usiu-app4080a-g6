@@ -1,214 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>USIU G6 | SaaS Platform</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USIU G6 | SaaS Platform</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="assets/js/auth.js"></script>
+    <!-- Fonts & Styles -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/auth.js"></script>
+  </head>
 
-  <!-- Page-Specific Styles -->
-  <style>
-    body {
-      background-color: #dae1f5;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-    a {
-      color: #FFD700;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    main {
-      padding: 60px 20px;
-      text-align: center;
-    }
-    h2 {
-      color: #1E3A8A;
-      font-weight: 700;
-    }
-    p {
-      color: #333;
-      font-size: 1rem;
-      margin: 5px 0;
-    }
-  </style>
-</head>
+  <body>
+    <!-- Scroll Progress Bar -->
+    <div id="progress-bar"></div>
 
-<body>
-  <!-- Scroll Progress Bar -->
-  <div id="progress-bar"></div>
-
-  <!-- ==========================
+    <!-- ==========================
        NAVBAR/Header Section
   =========================== -->
-  <header class="navbar" id="navbar">
-    <div class="container nav-container">
+    <header class="navbar" id="navbar">
+      <div class="container nav-container">
+        <!-- Logo -->
+        <div class="logo">USIU G6</div>
 
-      <!-- Logo -->
-      <div class="logo">USIU G6</div>
+        <!-- Navigation Links -->
+        <nav>
+          <ul class="nav-links" id="mobile-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="our-work.html">Sample Projects</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="our-team.html">Developers</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
 
-      <!-- Navigation Links -->
-      <nav>
-        <ul class="nav-links" id="mobile-menu">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="our-work.html">Sample Projects</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="our-team.html">Developers</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+            <!-- Mobile-only extras -->
+            <div class="mobile-extras">
+              <div class="nav-buttons">
+                <a href="login.html" class="btn-outline">Login</a>
+                <a href="signup.html" class="btn-primary">Sign Up</a>
+              </div>
 
-          <!-- Mobile-only extras -->
-          <div class="mobile-extras">
-            <div class="nav-buttons">
-              <a href="login.html" class="btn-outline">Login</a>
-              <a href="signup.html" class="btn-primary">Sign Up</a>
+              <div class="nav-socials">
+                <a
+                  href="#"
+                  class="social-btn twitter"
+                  aria-label="Twitter"
+                  data-tooltip="Twitter"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="social-btn linkedin"
+                  aria-label="LinkedIn"
+                  data-tooltip="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
+          </ul>
+        </nav>
 
-            <div class="nav-socials">
-              <a href="#" class="social-btn twitter" aria-label="Twitter" data-tooltip="Twitter">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"/>
-                </svg>
-              </a>
-              <a href="#" class="social-btn linkedin" aria-label="LinkedIn" data-tooltip="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </ul>
-      </nav>
+        <!-- Desktop Buttons -->
+        <div class="nav-buttons">
+          <a href="login.html" class="btn-outline">Login</a>
+          <a href="signup.html" class="btn-primary">Sign Up</a>
+        </div>
 
-      <!-- Desktop Buttons -->
-      <div class="nav-buttons">
-        <a href="login.html" class="btn-outline">Login</a>
-        <a href="signup.html" class="btn-primary">Sign Up</a>
+        <!-- Desktop Socials -->
+        <div class="nav-socials">
+          <a href="#" class="social-btn twitter" data-tooltip="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="social-btn linkedin" data-tooltip="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Hamburger Menu -->
+        <div
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </div>
 
-      <!-- Desktop Socials -->
-      <div class="nav-socials">
-        <a href="#" class="social-btn twitter" data-tooltip="Twitter">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"/>
-          </svg>
-        </a>
-        <a href="#" class="social-btn linkedin" data-tooltip="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"/>
-          </svg>
-        </a>
-      </div>
+      <div class="menu-overlay" id="menu-overlay"></div>
+    </header>
 
-      <!-- Hamburger Menu -->
-      <div class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </div>
-
-    <div class="menu-overlay" id="menu-overlay"></div>
-  </header>
-
-  <!-- ==========================
+    <!-- ==========================
        MAIN CONTACT CONTENT
   =========================== -->
-  <main>
-    <div class="container hero-grid" id="heroContent">
-      <div class="hero-text fade-in-up">
-        <h2>Get in Touch</h2>
-        <p>X Plaza</p>
-        <p>Tom Mboya St</p>
-        <p>P O Box 543-00100</p>
-        <p><a href="mailto:info@usiug6.com">info@usiug6.com</a></p>
-        <p>+254 724 000 000</p>
-        <p><a href="talktous.html" style="position: relative; z-index: 10000;">Talk to Us</a></p>
-      </div>
-    </div>
-  </main>
+    <main>
+      <section class="contact-section">
+        <div class="container">
+          <div class="contact-header">
+            <h1>Get in Touch</h1>
+            <p>
+              Have any queries? Send us a message and
+              we'll respond as soon as possible.
+            </p>
+          </div>
 
-  <!-- ==========================
+          <div class="contact-grid">
+            <!-- Contact Information  -->
+            <div class="contact-info-card">
+              <h2>Contact</h2>
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <p>X Plaza, Tom Mboya St. Nairobi, Kenya</p>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                  </svg>
+                </div>
+                <p>+254 724 000 000</p>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <p>
+                  <a
+                    href="mailto:info@usiug6.com"
+                    style="color: white; text-decoration: none"
+                    >info@usiug6.com</a
+                  >
+                </p>
+              </div>
+
+              <div class="contact-socials">
+                <a href="#" class="contact-social-btn" aria-label="Twitter">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="contact-social-btn" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact Form-->
+            <div class="contact-form-card">
+              <form
+                id="contactForm"
+                action="https://formsubmit.co/info@usiug6.com"
+                method="POST"
+              >
+                <!-- Honeypot for spam protection -->
+                <input type="text" name="_honey" style="display: none" />
+
+                <!-- Disable captcha -->
+                <input type="hidden" name="_captcha" value="false" />
+
+                <!-- Success page -->
+                <input
+                  type="hidden"
+                  name="_next"
+                  value="http://localhost:5000/contact.html?success=true"
+                />
+
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="form-input"
+                      placeholder="Jane Doe"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-input"
+                      placeholder="janedoe@example.com"
+                      required
+                    />
+                  </div>
+
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    class="form-input"
+                    placeholder="How can we help you?"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="form-input"
+                    rows="6"
+                    placeholder="Talk to us..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary contact-submit-btn">
+                  Send Message
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    style="margin-left: 0.5rem"
+                  >
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================
        FOOTER SECTION
   =========================== -->
-  <button id="scrollTopBtn" class="scroll-top">↑</button>
+    <button id="scrollTopBtn" class="scroll-top">↑</button>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">USIU G6</div>
-        <p>Modern tools to manage clients, automate tasks, and grow — all in one elegant platform.</p>
-      </div>
-
-      <div class="footer-links">
-        <h4>Product</h4>
-        <ul>
-          <li><a href="#">Features</a></li>
-          <li><a href="#">Integrations</a></li>
-          <li><a href="#">Roadmap</a></li>
-          <li><a href="#">Changelog</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-links">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-newsletter">
-        <h4>Stay in the loop</h4>
-        <p>Get product updates and tips straight to your inbox.</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!')">
-          <input type="email" placeholder="Your email" required />
-          <button class="btn-primary" type="submit">Subscribe</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <span>© 2025 USIU G6. All rights reserved.</span>
-        <div class="footer-legal">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Security</a>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">USIU G6</div>
+          <p>
+            Modern tools to manage clients, automate tasks, and grow — all in
+            one elegant platform.
+          </p>
         </div>
 
-        <div class="footer-socials-bottom">
-          <a href="#" class="social-btn twitter" aria-label="Twitter" data-tooltip="Twitter">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"/>
-            </svg>
-          </a>
-          <a href="#" class="social-btn linkedin" aria-label="LinkedIn" data-tooltip="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"/>
-            </svg>
-          </a>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Integrations</a></li>
+            <li><a href="#">Roadmap</a></li>
+            <li><a href="#">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4>Stay in the loop</h4>
+          <p>Get product updates and tips straight to your inbox.</p>
+          <form
+            class="newsletter-form"
+            onsubmit="event.preventDefault(); alert('Thanks for subscribing!')"
+          >
+            <input type="email" placeholder="Your email" required />
+            <button class="btn-primary" type="submit">Subscribe</button>
+          </form>
         </div>
       </div>
-    </div>
-  </footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
-  <script src="assets/js/script.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      AOS.init({ duration: 1000, once: true, offset: 100 });
-    });
-  </script>
-</body>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <span>© 2025 USIU G6. All rights reserved.</span>
+          <div class="footer-legal">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Security</a>
+          </div>
+
+          <div class="footer-socials-bottom">
+            <a
+              href="#"
+              class="social-btn twitter"
+              aria-label="Twitter"
+              data-tooltip="Twitter"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22 5.8c-.7.3-1.5.6-2.3.6.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5.9A4 4 0 0 0 12 8.7c0 .3 0 .6.1.9A11.5 11.5 0 0 1 3 5.2a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.6.1-.9.1-.2 0-.5 0-.7-.1a4 4 0 0 0 3.8 2.8A8.1 8.1 0 0 1 2 19.3a11.5 11.5 0 0 0 6.2 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.5 1.5-1.2 2.1-2.1z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="social-btn linkedin"
+              aria-label="LinkedIn"
+              data-tooltip="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.45 2.45 0 0 1 6.94 6.5zM4.75 8.5h4.39V20H4.75zM14.12 8.5c-2.35 0-3.4 1.28-3.99 2.18V8.5H5.75V20h4.38v-5.91c0-1.56.3-3.07 2.22-3.07s2.02 1.7 2.02 3.17V20h4.38v-6.79c0-3.47-1.86-4.71-4.63-4.71z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+
+        // Check if form was successfully submitted
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("success") === "true") {
+          // Show success message
+          const successDiv = document.createElement("div");
+          successDiv.style.cssText = `
+          position: fixed;
+          top: 100px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: linear-gradient(135deg, #10b981, #059669);
+          color: white;
+          padding: 1.2rem 2rem;
+          border-radius: 0.8rem;
+          box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+          z-index: 10000;
+          font-weight: 600;
+          animation: slideDown 0.5s ease;
+        `;
+          successDiv.innerHTML =
+            "✓ Message sent successfully! We'll get back to you soon.";
+          document.body.appendChild(successDiv);
+
+          // Remove success message after 5 seconds
+          setTimeout(() => {
+            successDiv.style.animation = "slideUp 0.5s ease";
+            setTimeout(() => successDiv.remove(), 500);
+          }, 5000);
+
+          // Clean URL
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+          );
+        }
+      });
+    </script>
+    <style>
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateX(-50%) translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateX(-50%) translateY(-20px);
+        }
+      }
+    </style>
+  </body>
 </html>
