@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual Environments (the ones you actually have)
+server/venv/
+
+# Flask
+server/instance/
+server/*.db
+
+# Environment variables
+server/.env
+
+# OS files
+.DS_Store

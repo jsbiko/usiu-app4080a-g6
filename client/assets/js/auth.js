@@ -40,14 +40,32 @@ async function apiRequest(endpoint, method = "GET", data = null) {
 
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
+
+    // Check if response is JSON
+    const contentType = response.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error(
+        "Server is not responding properly. Please make sure the Flask server is running."
+      );
+    }
+
     const result = await response.json();
 
     if (!response.ok) {
-      throw new Error(result.error || "Request failed");
+      throw new Error(result.error || result.message || "Request failed");
     }
 
     return result;
   } catch (error) {
+    // Network error/server not running
+    if (
+      error.message.includes("Failed to fetch") ||
+      error.message.includes("NetworkError")
+    ) {
+      throw new Error(
+        "Cannot connect to server. Please make sure the Flask server is running on http://localhost:5000"
+      );
+    }
     throw error;
   }
 }
@@ -59,8 +77,7 @@ async function checkAuthStatus() {
     return false;
   }
 
-  // If user data exists in localStorage, assume authenticated
-  // This avoids unnecessary API calls on every page load
+  // check if user data exists in localStorage
   if (UserManager.get()) {
     return true;
   }
@@ -84,7 +101,7 @@ async function checkAuthStatus() {
   }
 }
 
-// Protected Pages List
+// Protected Pages 
 const PROTECTED_PAGES = [
   "our-work.html",
   "pricing.html",
@@ -99,13 +116,13 @@ function isProtectedPage() {
   return PROTECTED_PAGES.includes(currentPage);
 }
 
-// IMMEDIATE PROTECTION - Hide page before it renders if protected and not logged in
+// hide page before it renders if protected and not logged in
 (function () {
   if (isProtectedPage()) {
-    // Check if user has token AND user data (both required for authentication)
+    // Check if user has token and user data
     const hasToken = TokenManager.exists();
     const hasUserData = !!UserManager.get();
-    
+
     if (!hasToken || !hasUserData) {
       // Immediately hide page and redirect
       document.documentElement.style.visibility = "hidden";
@@ -121,36 +138,37 @@ function redirectToLogin() {
   window.location.href = `/login.html?return=${returnUrl}`;
 }
 
-// Initialize page protection (simplified - main check is done above)
+// Initialize page protection 
 async function initPageProtection() {
-  // The immediate IIFE above handles protection
-  // This function is kept for compatibility but does nothing now
-  // since we rely on synchronous localStorage checks
 }
 
 // Update Navigation Based on Auth Status
 function updateNavigation() {
-  const navButtons = document.querySelector(".nav-buttons");
-  if (!navButtons) return;
+  // Get ALL nav-buttons elements 
+  const allNavButtons = document.querySelectorAll(".nav-buttons");
+  if (allNavButtons.length === 0) return;
 
   const isLoggedIn = UserManager.isLoggedIn();
 
-  if (isLoggedIn) {
-    const user = UserManager.get();
-    navButtons.innerHTML = `
-            <span class="user-greeting" style="color: var(--text-dark); margin-right: 1rem;">
-                Hi, ${user.firstName}!
-            </span>
-            <button onclick="handleLogout()" class="btn-primary logout-btn">
-                Logout
-            </button>
-        `;
-  } else {
-    navButtons.innerHTML = `
-            <a href="/login.html" class="btn-outline">Login</a>
-            <a href="/signup.html" class="btn-primary">Sign Up</a>
-        `;
-  }
+  // Update all navigation button containers
+  allNavButtons.forEach((navButtons) => {
+    if (isLoggedIn) {
+      const user = UserManager.get();
+      navButtons.innerHTML = `
+              <span class="user-greeting" style="color: var(--text-dark); margin-right: 1rem; font-weight: 600;">
+                  Hi, ${user.firstName}!
+              </span>
+              <button onclick="handleLogout()" class="btn-primary logout-btn" style="cursor: pointer;">
+                  Logout
+              </button>
+          `;
+    } else {
+      navButtons.innerHTML = `
+              <a href="/login.html" class="btn-outline">Login</a>
+              <a href="/signup.html" class="btn-primary">Sign Up</a>
+          `;
+    }
+  });
 }
 
 // Handle Logout
@@ -182,7 +200,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 function updateCTAButtons() {
   const isLoggedIn = UserManager.isLoggedIn();
 
-  // "Get started for free" buttons
+  // "Get started for free" button
   const getStartedButtons = document.querySelectorAll(
     ".get-started-btn, a.how-btn"
   );
@@ -190,7 +208,7 @@ function updateCTAButtons() {
     btn.href = "/signup.html";
   });
 
-  // "Book your free induction" buttons
+  // "Book your free induction" button
   const bookButtons = document.querySelectorAll(".book-induction-btn");
   bookButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
