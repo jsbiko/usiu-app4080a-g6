@@ -14,3 +14,8 @@ server/.env
 
 # OS files
 .DS_Store
+
+# Test artifacts
+tests/__pycache__/
+.pytest_cache/
+*.pyc
